@@ -6,9 +6,10 @@
 
 <div align="center">
   
-[![GitHub stars](https://img.shields.io/github/stars/AdilShamim8/Agentic-AI-Roadmap-Using-LangGraph?style=social)](https://github.com/AdilShamim8/Agentic-AI-Roadmap-Using-LangGraph/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/AdilShamim8/Agentic-AI-Roadmap-Using-LangGraph?style=social)](https://github.com/AdilShamim8/Agentic-AI-Roadmap-Using-LangGraph/network/members)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![GitHub stars](https://img.shields.io/github/stars/AdilShamim8/Agentic-AI-Roadmap-with-Notes-Using-LangGraph?style=social)
+![GitHub forks](https://img.shields.io/github/forks/AdilShamim8/Agentic-AI-Roadmap-with-Notes-Using-LangGraph?style=social)
+![GitHub last commit](https://img.shields.io/github/last-commit/AdilShamim8/Agentic-AI-Roadmap-with-Notes-Using-LangGraph)
+![License](https://img.shields.io/github/license/AdilShamim8/Agentic-AI-Roadmap-with-Notes-Using-LangGraph)
 
 </div>
 
