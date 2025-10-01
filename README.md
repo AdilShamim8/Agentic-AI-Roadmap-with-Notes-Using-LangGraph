@@ -12,7 +12,7 @@
 
 </div>
 
-## 📚 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [What is LangGraph?](#what-is-langgraph)
@@ -33,11 +33,11 @@
 - [License](#license)
 - [Contact](#contact)
 
-## 🌟 Overview
+## Overview
 
 This repository provides a comprehensive roadmap for learning and implementing agentic AI systems using LangGraph, a library designed for building stateful, multi-actor applications with LLMs. Whether you're a beginner looking to understand the basics or an experienced developer aiming to build sophisticated AI agents, this guide offers structured learning paths, practical examples, and best practices.
 
-## 🤖 What is LangGraph?
+## What is LangGraph?
 
 LangGraph is a library for building stateful, multi-actor applications with LLMs. It extends the [LangChain](https://github.com/langchain-ai/langchain) framework with:
 
@@ -48,7 +48,7 @@ LangGraph is a library for building stateful, multi-actor applications with LLMs
 
 At its core, LangGraph uses a graph-based approach to define the flow and interactions between components, making it easier to build complex AI agent systems.
 
-## 🎯 Why This Repository?
+## Why This Repository?
 
 Building effective agentic AI systems requires more than just understanding LLMs—it demands knowledge of:
 
@@ -60,7 +60,7 @@ Building effective agentic AI systems requires more than just understanding LLMs
 
 This repository aims to bridge the gap between understanding these concepts and implementing them effectively with LangGraph.
 
-## 💻 Installation
+## Installation
 
 ```bash
 # Install LangGraph
@@ -84,7 +84,7 @@ source langgraph-env/bin/activate  # On Windows: langgraph-env\Scripts\activate
 pip install langgraph langchain openai
 ```
 
-## 🛣️ Roadmap: From Beginner to Expert
+## Roadmap: From Beginner to Expert
 
 ### Phase 1: Fundamentals
 
@@ -142,7 +142,7 @@ pip install langgraph langchain openai
 - [Evaluation Techniques](https://python.langchain.com/docs/guides/evaluation/)
 - Practice Notebook: `notebooks/04_production.ipynb`
 
-## 🧩 Key Concepts
+## Key Concepts
 
 ### Graph Components
 
@@ -159,7 +159,7 @@ pip install langgraph langchain openai
 - **Conversation Agents**: Engage in natural dialogue with users
 - **Research Agents**: Gather, synthesize, and present information
 
-## 🚀 Example Projects
+## Example Projects
 
 This repository includes several example projects that demonstrate different aspects of LangGraph:
 
@@ -170,7 +170,7 @@ This repository includes several example projects that demonstrate different asp
 
 Each example is available in the `examples/` directory with detailed documentation and code.
 
-## 🏆 Best Practices
+## Best Practices
 
 ### Agent Design
 
@@ -193,7 +193,7 @@ Each example is available in the `examples/` directory with detailed documentati
 - **Scalability**: Design for concurrent users and variable load
 - **User feedback loops**: Collect and incorporate user feedback
 
-## 🔧 Troubleshooting Common Issues
+## Troubleshooting Common Issues
 
 ### LLM Reliability
 
@@ -215,7 +215,7 @@ Each example is available in the `examples/` directory with detailed documentati
 **Issue**: Lost context or overly large state objects
 **Solution**: Implement state summarization, pruning, and selective persistence
 
-## 📚 Resources
+## Resources
 
 ### Official Documentation
 
@@ -235,7 +235,7 @@ Each example is available in the `examples/` directory with detailed documentati
 - [LangChain Forum](https://github.com/langchain-ai/langchain/discussions)
 - [HuggingFace Forum](https://discuss.huggingface.co/)
 
-## ❓ FAQ
+## FAQ
 
 **Q: What's the difference between LangChain and LangGraph?**
 A: LangChain is a framework for building applications with LLMs, while LangGraph extends LangChain with stateful, graph-based execution for building more complex agent systems.
@@ -252,7 +252,7 @@ A: Implement caching, use smaller models for simpler tasks, optimize prompts to 
 **Q: How do I debug complex agent workflows?**
 A: Use LangSmith for tracing and debugging, implement extensive logging, visualize your graph execution, and test components in isolation.
 
-## 👥 Contributing
+## Contributing
 
 Contributions to this repository are welcome! Please follow these steps:
 
@@ -271,13 +271,13 @@ For major changes, please open an issue first to discuss what you would like to 
 - Include test cases for new functionality
 - Update the README.md as needed
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📬 Contact
+## Contact
 
-- GitHub: [@AdilShamim8](https://github.com/AdilShamim8)
+- GitHub: [Adil Shamim](https://github.com/AdilShamim8)
 - Create an issue in this repository for questions or suggestions
 
 ---
