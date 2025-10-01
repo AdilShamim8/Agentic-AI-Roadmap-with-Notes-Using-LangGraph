@@ -1,7 +1,7 @@
 # Agentic AI Roadmap with Notes Using LangGraph
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/langchain-ai/langgraph/main/docs/langgraph_logo.png" alt="LangGraph Logo" width="200"/>
+  <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langgraph.png" alt="LangGraph Logo" width="200"/>
 </p>
 
 <div align="center">
