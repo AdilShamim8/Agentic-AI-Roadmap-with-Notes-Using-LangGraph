@@ -1,4 +1,4 @@
-# Agentic AI Roadmap with LangGraph
+# Agentic AI Roadmap with Notes Using LangGraph
 
 Welcome to the Agentic AI Roadmap repository! This comprehensive guide will take you through building intelligent, autonomous AI agents using LangGraph - a library for creating stateful, multi-actor applications with LLMs.
 
@@ -375,7 +375,3 @@ Practice by building these increasingly complex projects:
 - [LangChain Discord](https://discord.gg/langchain)
 - [LangChain GitHub Discussions](https://github.com/langchain-ai/langchain/discussions)
 - [LLM Engineering Stack Exchange](https://llm.stackexchange.com/)
-
----
-
-This roadmap will be continuously updated as LangGraph and the field of Agentic AI evolve. Happy building!
