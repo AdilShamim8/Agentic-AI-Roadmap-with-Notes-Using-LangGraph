@@ -305,6 +305,3 @@ Execution stops when:
 * Edges = decisions
 * State = memory
 * Super-steps = controlled execution
-
-Just tell me 👍
-```
