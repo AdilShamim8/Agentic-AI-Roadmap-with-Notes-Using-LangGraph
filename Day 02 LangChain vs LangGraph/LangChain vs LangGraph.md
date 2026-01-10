@@ -1,4 +1,4 @@
-> # What is LangChain?
+> # `What is LangChain?`
 
 LangChain is an **open-source library** designed to simplify the process of building  
 **LLM-based applications**.
@@ -168,5 +168,4 @@ They are **complementary**, not competitors.
 > LangGraph builds the system.**
 
 If LangChain is the LEGO bricks,  
-
 LangGraph is the **blueprint + control logic**.
