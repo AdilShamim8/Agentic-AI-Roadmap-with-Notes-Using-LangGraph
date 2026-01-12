@@ -16,7 +16,7 @@ Task A              → Aggregator → Output
         → Task C →
 ```
 
-All parallel tasks start together and their results are combined later.
+All parallel tasks start together, and their results are combined later.
 
 ---
 
@@ -231,3 +231,4 @@ Where agents:
 ---
 
 > Parallelism is where LLM apps start behaving like **real systems**, not scripts.
+
