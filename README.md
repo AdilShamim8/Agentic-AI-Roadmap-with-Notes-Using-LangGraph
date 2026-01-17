@@ -2,21 +2,20 @@
 
 <p align="center">
   <a href="https://langchain-ai.github.io/langgraph/">
-    <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langchain. png" alt="LangGraph Logo" width="180"/>
+    <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langgraph.png" alt="LangGraph Logo" width="200"/>
   </a>
 </p>
 
 <div align="center">
-
-![GitHub stars](https://img.shields.io/github/stars/AdilShamim8/GenAI-Roadmap-with-Notes-Using-LangChain?style=social)
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Last Updated](https://img.shields.io/badge/last%20updated-January%202026-brightgreen)
+  
+![GitHub stars](https://img.shields.io/github/stars/AdilShamim8/Agentic-AI-Roadmap-with-Notes-Using-LangGraph?style=social)
+![GitHub forks](https://img.shields.io/github/forks/AdilShamim8/Agentic-AI-Roadmap-with-Notes-Using-LangGraph?style=social)
+![GitHub last commit](https://img.shields.io/github/last-commit/AdilShamim8/Agentic-AI-Roadmap-with-Notes-Using-LangGraph)
+![License](https://img.shields.io/github/license/AdilShamim8/Agentic-AI-Roadmap-with-Notes-Using-LangGraph)
 
 </div>
 
----
-
-## 📌 Table of Contents
+## Table of Contents
 
 - [Introduction](#introduction)
 - [What is Agentic AI?](#what-is-agentic-ai)
@@ -46,12 +45,12 @@ This roadmap provides a structured, hands-on path for mastering **Agentic AI** d
 
 **Agentic AI** refers to systems that can autonomously reason, plan, and take actions to accomplish goals without explicit step-by-step instructions. Key characteristics: 
 
-- 🧠 **Reasoning:** Deliberative problem solving
-- 🔄 **Self-improvement:** Reflexion/self-critique loops
-- 🔗 **Tool Use:** Integrating APIs, databases, web search
-- 🤝 **Multi-Agent Collaboration:** Teams of specialized agents
-- 🗄️ **Persistent Memory:** Long-term, context-aware knowledge
-- 🔐 **Governed Execution:** Safe, compliant tool invocation
+-  **Reasoning:** Deliberative problem solving
+-  **Self-improvement:** Reflexion/self-critique loops
+-  **Tool Use:** Integrating APIs, databases, web search
+-  **Multi-Agent Collaboration:** Teams of specialized agents
+-  **Persistent Memory:** Long-term, context-aware knowledge
+-  **Governed Execution:** Safe, compliant tool invocation
 
 ---
 
