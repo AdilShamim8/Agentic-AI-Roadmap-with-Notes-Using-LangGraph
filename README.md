@@ -2,291 +2,322 @@
 
 <p align="center">
   <a href="https://langchain-ai.github.io/langgraph/">
-    <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langgraph.png" alt="LangGraph Logo" width="200"/>
+    <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langchain. png" alt="LangGraph Logo" width="180"/>
   </a>
 </p>
 
 <div align="center">
-  
-![GitHub stars](https://img.shields.io/github/stars/AdilShamim8/Agentic-AI-Roadmap-with-Notes-Using-LangGraph?style=social)
-![GitHub forks](https://img.shields.io/github/forks/AdilShamim8/Agentic-AI-Roadmap-with-Notes-Using-LangGraph?style=social)
-![GitHub last commit](https://img.shields.io/github/last-commit/AdilShamim8/Agentic-AI-Roadmap-with-Notes-Using-LangGraph)
-![License](https://img.shields.io/github/license/AdilShamim8/Agentic-AI-Roadmap-with-Notes-Using-LangGraph)
+
+![GitHub stars](https://img.shields.io/github/stars/AdilShamim8/GenAI-Roadmap-with-Notes-Using-LangChain?style=social)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Last Updated](https://img.shields.io/badge/last%20updated-January%202026-brightgreen)
 
 </div>
 
-## Table of Contents
+---
 
-- [Overview](#overview)
-- [What is LangGraph?](#what-is-langgraph)
-- [Why This Repository?](#why-this-repository)
-- [Installation](#installation)
-- [Roadmap: From Beginner to Expert](#roadmap-from-beginner-to-expert)
-  - [Phase 1: Fundamentals](#phase-1-fundamentals)
-  - [Phase 2: Building Simple Agents](#phase-2-building-simple-agents)
-  - [Phase 3: Advanced Agent Architectures](#phase-3-advanced-agent-architectures)
-  - [Phase 4: Production and Deployment](#phase-4-production-and-deployment)
-- [Key Concepts](#key-concepts)
-- [Example Projects](#example-projects)
-- [Best Practices](#best-practices)
-- [Troubleshooting Common Issues](#troubleshooting-common-issues)
-- [Resources](#resources)
-- [FAQ](#faq)
+## 📌 Table of Contents
+
+- [Introduction](#introduction)
+- [What is Agentic AI?](#what-is-agentic-ai)
+- [Why LangGraph for Agentic AI?](#why-langgraph-for-agentic-ai)
+- [End-to-End Agentic AI Roadmap](#end-to-end-agentic-ai-roadmap)
+  - [Phase 1: Foundations (2-3 weeks)](#phase-1-foundations-2-3-weeks)
+  - [Phase 2: LangGraph Core Mastery (3-4 weeks)](#phase-2-langgraph-core-mastery-3-4-weeks)
+  - [Phase 3: Building Agentic Workflows (4-5 weeks)](#phase-3-building-agentic-workflows-4-5-weeks)
+  - [Phase 4: Advanced Agentic Patterns (4-6 weeks)](#phase-4-advanced-agentic-patterns-4-6-weeks)
+  - [Phase 5: Production & Scaling (3-4 weeks)](#phase-5-production--scaling-3-4-weeks)
+- [Project Ideas](#project-ideas)
+- [Key 2026 Trends](#key-2026-trends)
+- [Top Resources](#top-resources)
+- [Sample Code](#sample-code)
 - [Contributing](#contributing)
 - [License](#license)
-- [Contact](#contact)
 
-## Overview
+---
 
-This repository provides a comprehensive roadmap for learning and implementing agentic AI systems using LangGraph, a library designed for building stateful, multi-actor applications with LLMs. Whether you're a beginner looking to understand the basics or an experienced developer aiming to build sophisticated AI agents, this guide offers structured learning paths, practical examples, and best practices.
+## Introduction
 
-## What is LangGraph?
+This roadmap provides a structured, hands-on path for mastering **Agentic AI** development using **LangGraph**. It's designed for developers who want to build production-grade autonomous AI systems—agents that plan, reason, use tools, persist memory, and collaborate in multi-agent architectures.
 
-LangGraph is a library for building stateful, multi-actor applications with LLMs. It extends the [LangChain](https://github.com/langchain-ai/langchain) framework with:
+---
 
-- **Cyclic graphs**: Allowing for iterative reasoning, planning, and execution
-- **State management**: Maintaining context and memory throughout interactions
-- **Multi-agent orchestration**: Enabling collaboration between specialized agents
-- **Human-in-the-loop workflows**: Facilitating human-AI collaboration
+## What is Agentic AI?
 
-At its core, LangGraph uses a graph-based approach to define the flow and interactions between components, making it easier to build complex AI agent systems.
+**Agentic AI** refers to systems that can autonomously reason, plan, and take actions to accomplish goals without explicit step-by-step instructions. Key characteristics: 
 
-## Why This Repository?
+- 🧠 **Reasoning:** Deliberative problem solving
+- 🔄 **Self-improvement:** Reflexion/self-critique loops
+- 🔗 **Tool Use:** Integrating APIs, databases, web search
+- 🤝 **Multi-Agent Collaboration:** Teams of specialized agents
+- 🗄️ **Persistent Memory:** Long-term, context-aware knowledge
+- 🔐 **Governed Execution:** Safe, compliant tool invocation
 
-Building effective agentic AI systems requires more than just understanding LLMs—it demands knowledge of:
+---
 
-- **State management** across multiple interactions
-- **Planning and reasoning** algorithms
-- **Tool and environment integration**
-- **Multi-agent cooperation** strategies
-- **Evaluation and debugging** techniques
+## Why LangGraph for Agentic AI? 
 
-This repository aims to bridge the gap between understanding these concepts and implementing them effectively with LangGraph.
+**LangGraph** is a stateful orchestration framework designed for building agentic workflows. It extends LangChain with:
 
-## Installation
+- **Graph-based workflows:** Model complex agent behaviors as state machines
+- **Multi-agent support:** Compose specialized agents for complex tasks
+- **Persistent memory graphs:** Store and recall experiences atomically
+- **Reflexion loops:** Built-in support for agent self-improvement
+- **Tool/API integration:** Fine-grained, governed tool access
+- **Production features:** Checkpointing, tracing, error handling
 
-```bash
-# Install LangGraph
-pip install langgraph
+> **January 2026**: LangGraph now supports adaptive deliberation, Zettelkasten-style memory graphs, and advanced multi-agent orchestration—making it the go-to framework for next-generation agents. 
+> [[1]](https://www.marktechpost.com/2026/01/06/how-to-design-an-agentic-ai-architecture-with-langgraph-and-openai-using-adaptive-deliberation-memory-graphs-and-reflexion-loops/) [[2]](https://machinelearningmastery.com/7-agentic-ai-trends-to-watch-in-2026/)
 
-# For additional features (e.g., visualization)
-pip install "langgraph[graphviz]"
+---
 
-# If you need the latest features
-pip install git+https://github.com/langchain-ai/langgraph.git
-```
+## End-to-End Agentic AI Roadmap
 
-Ensure you have Python 3.9+ installed. For a complete development environment, consider:
+### Phase 1: Foundations (2-3 weeks)
 
-```bash
-# Create and activate a virtual environment
-python -m venv langgraph-env
-source langgraph-env/bin/activate  # On Windows: langgraph-env\Scripts\activate
+**Goal:** Build a rock-solid base in AI, LLMs, and LangChain. 
 
-# Install dependencies
-pip install langgraph langchain openai
-```
+| Topic | Key Concepts |
+|-------|--------------|
+| **LLM Fundamentals** | Tokenization, prompting, inference, temperature |
+| **Prompt Engineering** | Zero/Few-shot, Chain of Thought, Self-consistency |
+| **LangChain Basics** | Chains, Agents, Memory, Tools, LCEL |
+| **Python Async & State Mgmt** | asyncio, state machines, event-driven programming |
 
-## Roadmap: From Beginner to Expert
+**Mini-Projects:**
+- Build a simple Q&A chatbot with LangChain
+- Implement a retrieval-augmented generator (RAG)
 
-### Phase 1: Fundamentals
+---
 
-**Week 1-2: Getting Started**
-- [ ] Understand the basics of LLMs and their capabilities
-- [ ] Learn the core concepts of LangChain and LangGraph
-- [ ] Set up your development environment
-- [ ] Build your first simple graph with LangGraph
-- [ ] Experiment with different LLM models
+### Phase 2: LangGraph Core Mastery (3-4 weeks)
 
-**Resources:**
-- [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
-- [Introduction to LangGraph](https://python.langchain.com/docs/langgraph/)
-- Practice Notebook: `notebooks/01_basics.ipynb`
+**Goal:** Deeply understand LangGraph's architecture and API.
 
-### Phase 2: Building Simple Agents
+| Topic | Key Concepts |
+|-------|--------------|
+| **Graph Architecture** | Nodes, edges, state, transitions, conditional logic |
+| **Building State Machines** | Designing, running, debugging agent graphs |
+| **Memory in LangGraph** | Checkpointing, episodic memory, persistent state |
+| **Tool Integration** | Connecting LLMs to APIs, DBs, external services |
+| **Human-in-the-Loop** | Adding human review checkpoints |
 
-**Week 3-4: Single-Agent Systems**
-- [ ] Implement state management in LangGraph
-- [ ] Create a basic reasoning agent with tools
-- [ ] Learn about different prompting techniques
-- [ ] Add memory and context to your agent
-- [ ] Implement error handling and validation
+**Mini-Projects:**
+- Create a customer support agent using state graphs
+- Add memory and tool calling to an agent
 
-**Resources:**
-- [Agent State Management Guide](https://python.langchain.com/docs/langgraph/agent_executor)
-- [Tool Integration Tutorial](https://python.langchain.com/docs/modules/agents/tools/)
-- Practice Notebook: `notebooks/02_simple_agent.ipynb`
+---
 
-### Phase 3: Advanced Agent Architectures
+### Phase 3: Building Agentic Workflows (4-5 weeks)
 
-**Week 5-6: Multi-Agent Systems**
-- [ ] Design and implement multi-agent architectures
-- [ ] Create specialized agents for different tasks
-- [ ] Implement agent-to-agent communication
-- [ ] Build coordination and orchestration mechanisms
-- [ ] Add human-in-the-loop capabilities
+**Goal:** Design, build, and test advanced agentic systems.
 
-**Resources:**
-- [Multi-Agent Orchestration](https://python.langchain.com/docs/langgraph/multi_agent/)
-- [Human Feedback Integration](https://python.langchain.com/docs/modules/agents/how_to/human_in_the_loop/)
-- Practice Notebook: `notebooks/03_multi_agent.ipynb`
+| Topic | Key Concepts |
+|-------|--------------|
+| **Multi-Agent Orchestration** | Planners, executors, routers, orchestrators |
+| **ReAct Agents** | Reasoning + Acting loops, self-correction |
+| **Plan-and-Execute Pattern** | Decompose & conquer complex tasks |
+| **Reflexion Loops** | Self-review, introspection, iterative improvement |
+| **Agentic Memory Graphs** | Zettelkasten-style linking, context-aware retrieval |
 
-### Phase 4: Production and Deployment
+**Mini-Projects:**
+- Build a plan-and-execute document analyst
+- Multi-agent workflow:  planner + researcher + summarizer
 
-**Week 7-8: Scaling and Optimizing**
-- [ ] Optimize your agents for cost and performance
-- [ ] Implement evaluation metrics and testing strategies
-- [ ] Secure your agent systems
-- [ ] Deploy agents to production environments
-- [ ] Monitor and maintain deployed systems
+---
 
-**Resources:**
-- [LangGraph Deployment Guide](https://langchain-ai.github.io/langgraph/cloud/)
-- [Evaluation Techniques](https://python.langchain.com/docs/guides/evaluation/)
-- Practice Notebook: `notebooks/04_production.ipynb`
+### Phase 4: Advanced Agentic Patterns (4-6 weeks)
 
-## Key Concepts
+**Goal:** Master enterprise-grade and cutting-edge agent patterns.
 
-### Graph Components
+| Topic | Key Concepts |
+|-------|--------------|
+| **Adaptive Deliberation** | Fast/slow reasoning, context-aware switching |
+| **Self-Improving Agents** | Learning from past errors, memory-enhanced agents |
+| **Governed Tool Use** | Permissions, logging, safety constraints |
+| **Complex Branching & Cycles** | Non-linear graphs, parallel/sequential flows |
+| **Multimodal Agents** | Integrating text, images, audio in agent workflows |
+| **Enterprise Compliance** | Audit trails, data privacy, compliance layers |
 
-- **Nodes**: Individual processing units that can be functions, agents, or tools
-- **Edges**: Connections between nodes that define the flow of information
-- **State**: The shared context that persists between steps of execution
-- **Checkpointing**: Saving and restoring graph execution states
+**Mini-Projects:**
+- Self-improving code review agent with reflexion
+- Governed multi-tool workflow for regulated domains (e.g., healthcare, finance)
 
-### Agent Types
+---
 
-- **ReAct Agents**: Reason, Act, and Observe pattern for problem-solving
-- **Planning Agents**: Create and execute plans to achieve goals
-- **Tool-Using Agents**: Leverage external tools and APIs
-- **Conversation Agents**: Engage in natural dialogue with users
-- **Research Agents**: Gather, synthesize, and present information
+### Phase 5: Production & Scaling (3-4 weeks)
 
-## Example Projects
+**Goal:** Deploy, monitor, and scale agentic AI systems.
 
-This repository includes several example projects that demonstrate different aspects of LangGraph:
+| Topic | Key Concepts |
+|-------|--------------|
+| **Checkpointing & Reliability** | Save/restore state, error handling, retries |
+| **Logging & Monitoring** | Tracing, observability, LLM monitoring tools |
+| **Deployment** | APIs (FastAPI, Cloud Run), containerization |
+| **Scaling Multi-Agent Systems** | Distributed agents, load balancing |
+| **Continuous Improvement** | User feedback loops, A/B testing, agent updates |
 
-1. **Simple Q&A Agent**: A basic question-answering agent that uses web search tools
-2. **Research Assistant**: An agent that researches topics and writes summaries
-3. **Multi-Agent Debate System**: Multiple agents discussing and analyzing a topic
-4. **Task Management System**: A planning agent that breaks down tasks and executes them
+**Mini-Projects:**
+- Deploy a production-ready agent API with monitoring
+- Build a feedback loop pipeline for agent improvement
 
-Each example is available in the `examples/` directory with detailed documentation and code.
+---
 
-## Best Practices
+## Project Ideas
 
-### Agent Design
+| Project | Description |
+|---------|-------------|
+| **Autonomous Research Assistant** | Researches, summarizes, and compiles information from web and documents |
+| **Multi-Agent Customer Support** | Router, retriever, and responder agents for support tickets |
+| **Self-Healing Code Agent** | Detects, diagnoses, and fixes code bugs autonomously |
+| **Personal Knowledge Manager** | Memory graph-powered assistant with long-term recall |
+| **Agentic Workflow Automation** | Multi-step business process automation (e.g., invoice processing) |
 
-- **Start simple**: Begin with the minimal viable agent and add complexity as needed
-- **Clear responsibility**: Define specific roles and boundaries for each agent
-- **Effective prompting**: Craft clear, consistent instructions for your agents
-- **Thoughtful state design**: Model your state to capture relevant information without bloat
+---
 
-### Implementation
+## Key 2026 Trends
 
-- **Modular components**: Build reusable nodes and tools
-- **Extensive testing**: Test agents with diverse inputs and edge cases
-- **Graceful error handling**: Implement recovery strategies for common failures
-- **Cost management**: Optimize token usage and API calls
+- **Multi-Agent Systems:** Enterprises are shifting from single-agent to orchestrated teams of specialized agents ("microservices for AI")
+- **Agentic Memory Graphs:** Persistent, context-aware memory is now standard for production agents
+- **Reflexion & Self-Improvement:** Agents that learn from their mistakes and improve over time
+- **Governed, Safe Tooling:** Permissioned tool use with full audit trails for regulated industries
+- **Adaptive Reasoning:** Fast vs deep deliberation based on context and task complexity
 
-### Deployment
+> *"Over 40% of enterprise software now embeds agentic AI functionalities."*
+> [[2]](https://acuvate.com/blog/2026-agentic-ai-expert-predictions/)
 
-- **Monitoring**: Implement logging and observability
-- **Security**: Sanitize inputs and outputs, especially for tool-using agents
-- **Scalability**: Design for concurrent users and variable load
-- **User feedback loops**: Collect and incorporate user feedback
+---
 
-## Troubleshooting Common Issues
-
-### LLM Reliability
-
-**Issue**: Inconsistent outputs or hallucinations
-**Solution**: Implement structured outputs, validation steps, and retry mechanisms
-
-### Performance Bottlenecks
-
-**Issue**: Slow response times, especially with complex graphs
-**Solution**: Implement parallelization, caching, and optimize token usage
-
-### Tool Integration Issues
-
-**Issue**: Tools failing or returning unexpected results
-**Solution**: Add robust error handling, validation, and fallback mechanisms
-
-### State Management Challenges
-
-**Issue**: Lost context or overly large state objects
-**Solution**: Implement state summarization, pruning, and selective persistence
-
-## Resources
+## Top Resources
 
 ### Official Documentation
+- [LangGraph Docs](https://langchain-ai.github.io/langgraph/)
+- [LangChain Documentation](https://python.langchain.com/docs/introduction/)
+- [LangGraph GitHub](https://github.com/langchain-ai/langgraph)
 
-- [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
-- [LangChain Documentation](https://python.langchain.com/docs/)
-- [LangSmith (for debugging)](https://www.langchain.com/langsmith)
+### Tutorials & Courses
+- [DeepLearning.AI - LangGraph for Agentic AI](https://www.deeplearning.ai/short-courses/)
+- [Udemy:  Build AI Agents 10x Faster 2026](https://www.udemy.com/course/build-ai-agents-agentic-2026-python-langchain-langgraph/)
+- [AICurator: LangGraph Conversational AI Guide 2026](https://aicurator.io/langgraph-conversational-ai-app/)
 
-### Learning Materials
+### Articles & Guides
+- [How to Design Agentic AI with LangGraph (MarkTechPost)](https://www.marktechpost.com/2026/01/06/how-to-design-an-agentic-ai-architecture-with-langgraph-and-openai-using-adaptive-deliberation-memory-graphs-and-reflexion-loops/)
+- [7 Agentic AI Trends to Watch in 2026](https://machinelearningmastery.com/7-agentic-ai-trends-to-watch-in-2026/)
+- [Agentic AI Frameworks: Enterprise Guide 2026](https://www.spaceo.ai/blog/agentic-ai-frameworks/)
 
-- [LangChain YouTube Channel](https://www.youtube.com/c/LangChain)
-- [Building LLM Powered Applications](https://www.oreilly.com/library/view/building-llm-powered/9781098150952/)
-- [Agent AI Systems Design](https://www.deeplearning.ai/short-courses/agent-ai-systems-design/)
+### Research Papers
+- [ReAct: Synergizing Reasoning and Acting](https://arxiv.org/abs/2210.03629)
+- [Reflexion: Language Agents with Verbal Reinforcement Learning](https://arxiv.org/abs/2303.11366)
+- [Tree of Thoughts: Deliberate Problem Solving](https://arxiv.org/abs/2305.10601)
 
-### Communities
+---
 
-- [LangChain Discord](https://discord.gg/langchain)
-- [LangChain Forum](https://github.com/langchain-ai/langchain/discussions)
-- [HuggingFace Forum](https://discuss.huggingface.co/)
+## Sample Code
 
-## FAQ
+### Basic LangGraph Agent (Stateful, with Tool Use)
 
-**Q: What's the difference between LangChain and LangGraph?**
-A: LangChain is a framework for building applications with LLMs, while LangGraph extends LangChain with stateful, graph-based execution for building more complex agent systems.
+```python
+from langgraph.graph import StateGraph, END
+from langchain_openai import ChatOpenAI
+from langchain. tools import tool
 
-**Q: Do I need deep ML knowledge to use LangGraph?**
-A: No, you can build effective agents with basic Python knowledge and understanding of LLM capabilities, though deeper ML knowledge can help with advanced optimizations.
+# Define a simple tool
+@tool
+def web_search(query: str) -> str:
+    """Search the web for information."""
+    # Integrate with your preferred search API
+    return f"[Simulated search result for:  {query}]"
 
-**Q: Which LLM models work best with LangGraph?**
-A: LangGraph works with most modern LLMs, including OpenAI's GPT models, Anthropic's Claude, Meta's Llama models, and others. The choice depends on your specific requirements for reasoning capabilities, tool use, and cost considerations.
+# Define agent state
+class AgentState(dict):
+    messages: list
+    tool_calls: list
+    result: str
 
-**Q: How can I reduce the cost of running agents?**
-A: Implement caching, use smaller models for simpler tasks, optimize prompts to reduce token usage, and implement batch processing where possible.
+# Define nodes
+def call_llm(state):
+    llm = ChatOpenAI(model="gpt-4o", temperature=0)
+    response = llm.invoke(state["messages"])
+    state["messages"].append(response)
+    return state
 
-**Q: How do I debug complex agent workflows?**
-A: Use LangSmith for tracing and debugging, implement extensive logging, visualize your graph execution, and test components in isolation.
+def invoke_tool(state):
+    # Execute tool calls here
+    for call in state["tool_calls"]: 
+        result = web_search. invoke(call["args"])
+        state["result"] = result
+    return state
+
+# Build graph
+graph = StateGraph(AgentState)
+graph.add_node("llm", call_llm)
+graph.add_node("tool", invoke_tool)
+graph.add_edge("llm", "tool")
+graph.add_edge("tool", END)
+graph.set_entry_point("llm")
+
+# Compile and run
+agent = graph.compile()
+result = agent.invoke({"messages":  [{"role": "user", "content": "What is LangGraph? "}], "tool_calls": [], "result": ""})
+print(result["result"])
+```
+
+### Multi-Agent Workflow (Planner + Executor)
+
+```python
+from langgraph.graph import StateGraph, END
+
+class WorkflowState(dict):
+    plan: list
+    step: int
+    results: list
+
+def planner(state):
+    # Generate a plan (list of steps)
+    state["plan"] = ["Research topic", "Summarize findings", "Generate report"]
+    state["step"] = 0
+    return state
+
+def executor(state):
+    # Execute the current step
+    current = state["plan"][state["step"]]
+    state["results"].append(f"Completed:  {current}")
+    state["step"] += 1
+    return state
+
+def should_continue(state):
+    if state["step"] < len(state["plan"]):
+        return "executor"
+    return END
+
+graph = StateGraph(WorkflowState)
+graph.add_node("planner", planner)
+graph.add_node("executor", executor)
+graph.add_conditional_edges("executor", should_continue)
+graph.add_edge("planner", "executor")
+graph.set_entry_point("planner")
+
+workflow = graph.compile()
+result = workflow.invoke({"plan": [], "step": 0, "results": []})
+print(result["results"])
+```
+
+---
 
 ## Contributing
 
-Contributions to this repository are welcome! Please follow these steps:
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature-name`
-5. Submit a pull request
-
-For major changes, please open an issue first to discuss what you would like to change.
-
-### Contribution Guidelines
-
-- Add clear documentation for any new examples or resources
-- Follow the existing code style and structure
-- Include test cases for new functionality
-- Update the README.md as needed
+---
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-- GitHub: [Adil Shamim](https://github.com/AdilShamim8)
-- Create an issue in this repository for questions or suggestions
+This project is licensed under the MIT License. 
 
 ---
 
 <div align="center">
-  
-⭐ **If you find this repository helpful, please consider giving it a star!** ⭐
+
+⭐ **If you find this roadmap helpful, please star the repo! ** ⭐
 
 </div>
