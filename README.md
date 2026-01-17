@@ -307,16 +307,31 @@ print(result["results"])
 
 Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
----
-
 ## License
 
-This project is licensed under the MIT License. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-<div align="center">
+## Contact
 
-⭐ **If you find this roadmap helpful, please star the repo! ** ⭐
+- Website: [Adil Shamim](https://adilshamim.me/)
+- GitHub: [Adil Shamim](https://github.com/AdilShamim8)
+- Create an issue in this repository for questions or suggestions
+
+---
+
+<p align="center">
+  <a href="https://github.com/AdilShamim8">
+    <img src="https://img.shields.io/badge/GitHub-AdilShamim8-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Profile"/>
+  </a>
+  <span style="opacity:.6"> &nbsp; </span>
+  <a href="https://www.linkedin.com/in/adilshamim8">
+    <img src="https://img.shields.io/badge/LinkedIn-AdilShamim8-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Profile"/>
+  </a>
+</p>
+<div align="center">
+  
+⭐ **If you find this repository helpful, please consider giving it a star!** ⭐
 
 </div>
