@@ -1,0 +1,7 @@
+{
+  "graphs": {
+    "agent": "./examples/conversational_agent_demo.py:agent"
+  },
+  "env": ".env",
+  "dependencies": ["./pyproject.toml"]
+}
