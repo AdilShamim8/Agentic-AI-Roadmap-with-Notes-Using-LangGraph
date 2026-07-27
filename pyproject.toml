@@ -1,0 +1,81 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-ai-roadmap"
+version = "0.2.0"
+description = "A production-grade, hands-on curriculum for building agentic AI systems with LangGraph, MCP, and A2A."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "Adil Shamim" }]
+keywords = ["agentic-ai", "langgraph", "mcp", "a2a", "agents", "llm"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "langgraph==0.2.50",
+    "langchain==0.3.7",
+    "langchain-core==0.3.15",
+    "langchain-openai==0.2.5",
+    "langchain-anthropic==0.2.3",
+    "langchain-mcp-adapters==0.1.0",
+    "langsmith==0.1.140",
+    "mcp==1.0.0",
+    "pydantic==2.9.2",
+    "python-dotenv==1.0.1",
+    "httpx==0.27.2",
+    "rich==13.9.4",
+    "tenacity==9.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.3",
+    "pytest-asyncio==0.24.0",
+    "ruff==0.7.1",
+    "mypy==1.13.0",
+    "nbqa==1.9.0",
+    "jupyterlab==4.2.5",
+]
+deploy = [
+    "langgraph-platform>=0.1.0",
+    "fastapi==0.115.4",
+    "uvicorn==0.32.0",
+    "psycopg[binary]==3.2.3",
+    "redis==5.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects"
+Repository = "https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects"
+Changelog = "https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+packages = ["examples"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "C4", "SIM"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["examples", "tests"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = false
+warn_unused_configs = true
+ignore_missing_imports = true

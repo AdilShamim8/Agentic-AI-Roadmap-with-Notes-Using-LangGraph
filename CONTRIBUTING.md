@@ -1,177 +1,109 @@
-# Contributing to Agentic AI Roadmap with Notes Using LangGraph
+# Contributing
 
-First off, thank you for considering contributing to the Agentic AI Roadmap! 
-It's people like you who make this resource valuable for the global AI community.
+Contributions are welcome. This document describes the editorial bar, the templates, the review process, and the conventions that every file in this repository follows.
 
-This document provides guidelines and instructions for contributing to this project.  Following these guidelines helps communicate that you respect the time of the developers managing and developing this open-source project.  In return, we will respect your efforts. 
+Read [STYLING.md](STYLING.md) before opening a pull request. PRs that violate the styling rules will be requested for changes.
 
----
+## What we are looking for
 
-## Table of Contents
+The highest-value contributions are:
 
-- [Code of Conduct](#code-of-conduct)
-- [How Can I Contribute?](#how-can-i-contribute)
-  - [Reporting Bugs](#reporting-bugs)
-  - [Suggesting Enhancements](#suggesting-enhancements)
-  - [Contributing Content](#contributing-content)
-  - [Pull Requests](#pull-requests)
-- [Styleguides](#styleguides)
-  - [Git Commit Messages](#git-commit-messages)
-  - [Markdown Styleguide](#markdown-styleguide)
-  - [Code Examples Styleguide](#code-examples-styleguide)
-  - [LangGraph-Specific Guidelines](#langgraph-specific-guidelines)
-- [Review Process](#review-process)
-- [Community](#community)
-- [Attribution](#attribution)
+- New chapters in modules 04 through 09 (currently in `draft` or `beta` status)
+- Reference implementations for the projects in [projects/](projects/)
+- Golden datasets and evaluators for existing chapters
+- Corrections to technical inaccuracies, especially around rapidly-evolving APIs (LangGraph, MCP, A2A)
+- Translations of the learning paths into other languages
 
----
+The lowest-value contributions are:
 
-## Code of Conduct
+- Cosmetic changes that do not improve signal density
+- New chapters in modules 01 through 03 (these are stable; changes need a strong reason)
+- Content that duplicates what already exists elsewhere in the repo
 
-This project and everyone participating in it are governed by our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [adil.shamim. dev@example.com](mailto:adil.shamim.dev@example.com).
+## Before you write
 
----
+Open an issue first. Describe what you want to add or change, and why. A maintainer will respond within a week to confirm scope, suggest a location, and flag any conflicts with in-progress work. This avoids the situation where you spend two days on a PR that gets rejected because the work is already in flight.
 
-## How Can I Contribute? 
+## Use the templates
 
-### Reporting Bugs
+Every new chapter, project, eval rubric, and learning path uses a template from [_templates/](_templates/). The templates are the contract that enforces consistency. Do not invent your own structure.
 
-Before creating bug reports, please check [the issue list](https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-Using-LangGraph/issues) to see if the issue has already been reported.
+- [Chapter template](_templates/chapter.md) - for any new topic chapter
+- [Project template](_templates/project.md) - for any new portfolio project
+- [Eval rubric template](_templates/eval-rubric.md) - for any new evaluation suite
+- [Learning path template](_templates/learning-path.md) - for any new role-specific path
 
-When filing a bug report, please include: 
+## Editorial bar
 
-- **A clear and descriptive title** for the issue
-- **The exact steps to reproduce the problem** in as much detail as possible
-- **Specific examples** to demonstrate the steps (code snippets, screenshots, etc.)
-- **The behavior you observed** after following the steps
-- **The behavior you expected to see instead** and why
-- **Screenshots or logs** if applicable
-- **Your configuration and environment** (Python version, LangGraph/LangChain version, OS, etc.)
+Every chapter that ships as `stable` must meet the bar below. Chapters in `draft` or `beta` are explicitly marked as such and do not need to meet the full bar — but they should be making progress toward it.
 
-### Suggesting Enhancements
+A `stable` chapter:
 
-Enhancement suggestions are always welcome! When proposing an enhancement, please:
+- Follows the [chapter template](_templates/chapter.md) exactly
+- Has runnable code in a paired `.py` + `.ipynb` format (the `.py` is the source of truth; the notebook imports and demonstrates)
+- Has at least one `test_*.py` file that runs in CI
+- Has at least a 10-row golden dataset in CSV
+- Has at least one evaluator (rule-based or LLM-as-judge)
+- Has been reviewed for technical accuracy against the latest version of the relevant API
+- Has a "Last reviewed" date within 90 days
+- Follows every rule in [STYLING.md](STYLING.md)
 
-- **Use a clear and descriptive title** for the issue
-- **Provide a step-by-step description of the suggested enhancement** in as much detail as possible
-- **Provide specific examples** to demonstrate the steps or intended behavior
-- **Describe the current behavior and explain what you expected to see instead**
-- **Explain why this enhancement would be useful** for learners and practitioners
+## Pull request process
 
-### Contributing Content
+1. Fork the repository and create a branch from `main`
+2. If you are adding new content, open an issue first (see "Before you write")
+3. Write the content using the appropriate template
+4. Run `make lint` and `make test` locally; both must pass
+5. If your change affects an agent, run `make eval` and include the eval diff in the PR description
+6. Open the PR with a clear title and a description that explains what changed and why
+7. Link the issue your PR addresses
 
-Content contributions are the heart of this project! Here's how to contribute new content or improve existing content:
+A maintainer will review within a week. Review focuses on: technical accuracy, adherence to the templates and styling rules, signal density (no padding), and whether the content earns its place in the repo.
 
-#### For New Topics or Examples
+## Git commit messages
 
-- Check if the topic fits within the roadmap structure (e.g., LangGraph agents, memory, multi-agent, production, etc.)
-- Create an issue first to discuss the proposed content
-- Follow the repository structure when adding new files
-- Provide clear, runnable code examples with comments
+Use the present tense and imperative mood:
 
-#### For Improvements to Existing Content
+- "Add MCP server chapter" not "Added MCP server chapter"
+- "Fix typo in eval section" not "Fixes typo in eval section"
 
-- Ensure corrections are accurate and up-to-date (especially for LangGraph APIs, which evolve rapidly)
-- Maintain the existing format and style
-- Add references to official documentation or research papers where appropriate
+Limit the first line to 72 characters. Reference the issue number in the body if applicable.
 
-#### Types of Contributions We Love
+Optional prefixes:
 
--  New notes or tutorials on agentic AI topics
--  Working LangGraph code examples (agents, multi-agent workflows, memory graphs, etc.)
--  Curated resources (articles, papers, courses)
--  Bug fixes and documentation improvements
--  Translations and accessibility improvements
+- `docs:` for documentation-only changes
+- `code:` for changes to code examples
+- `eval:` for changes to eval suites or datasets
+- `fix:` for bug fixes
+- `chore:` for maintenance (dependency bumps, CI config)
 
-### Pull Requests
+## Code style
 
-When submitting a pull request:
+Python code follows PEP 8 with a 100-character line length. Type hints are required on all function signatures. Docstrings are required on all public functions.
 
-1. **Fork the repository** and create your branch from `main`
-2. **Follow the structure** of the repository for new files
-3. **Include relevant tests** if applicable (especially for code examples)
-4. **Ensure code quality** through clear documentation and comments
-5. **Update documentation** if your changes affect the README, roadmap, or any guides
-6. **Issue the pull request** with a clear title and description
+Code examples in chapters should be small enough to read in one sitting but realistic enough that the failure modes are visible. Avoid toy domains (BMI calculators, quadratic equation solvers) when a real domain works at the same size — a 30-line invoice-extraction agent teaches more than a 30-line BMI agent because the failure modes (PII, schema drift, missing fields) are real.
 
----
+Every code example must include:
 
-## Styleguides
+- Error handling for LLM API failures (timeouts, rate limits, 5xx)
+- Structured logging (not `print`)
+- Type hints
+- A docstring on the public surface
 
-### Git Commit Messages
+## Review process
 
-- Use the present tense ("Add feature", not "Added feature")
-- Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
-- Limit the first line to 72 characters or fewer
-- Reference issues and pull requests liberally after the first line
-- Consider starting the commit message with an applicable emoji:
-  -  `:memo:` when adding or updating documentation
-  -  `:bug:` when fixing a bug
-  -  `:sparkles:` when adding a new feature
-  -  `:recycle:` when refactoring code
-  -  `:white_check_mark:` when adding tests
-  -  `:robot:` when adding/updating agent examples
+The review process has three stages:
 
-### Markdown Styleguide
+1. Technical accuracy - does the code run? Does it use the current API? Are the claims correct?
+2. Pedagogical clarity - does the chapter teach the concept? Does the worked example expose the right failure modes? Does the eval measure the right thing?
+3. Stylistic consistency - does it follow STYLING.md? Does it match the voice of the surrounding chapters?
 
-- Use consistent headings and nested headings
-- Use backticks for inline code references (e.g., `StateGraph`, `add_node`)
-- Use proper code blocks with language specification (```python)
-- Include blank lines between sections for readability
-- Use descriptive link text rather than "click here" or similar phrases
-- For complex agent workflows, include diagrams or flowcharts if possible
-
-### Code Examples Styleguide
-
-- Include clear, concise comments
-- Follow [PEP 8](https://peps.python.org/pep-0008/) style guide for Python code
-- Include docstrings for functions and classes
-- Provide example outputs where relevant
-- Keep examples focused on demonstrating one concept at a time
-- Ensure code can be run with the dependencies listed in `requirements.txt`
-- Avoid hardcoding secrets/API keys—use environment variables
-
-### LangGraph-Specific Guidelines
-
-- Use the latest stable LangGraph API (document the version if needed)
-- Define agent state clearly using dataclasses or TypedDicts
-- Name nodes and edges descriptively (e.g., `planner`, `executor`, `should_continue`)
-- Document the flow of your graph with comments or diagrams
-- When using tools, clearly define their purpose and expected input/output
-- For multi-agent examples, explain the role of each agent in the workflow
-
----
-
-## Review Process
-
-The maintainers will review your pull request and may suggest changes or improvements. The review process includes:
-
-1. Checking if the contribution fits the project scope
-2. Verifying technical accuracy (especially for LangGraph/LangChain APIs)
-3. Checking content quality and clarity
-4. Testing code examples, if applicable
-5. Ensuring compatibility with the latest LangGraph version
-
-Once approved, your contributions will be merged into the main branch.
-
----
+A PR must pass all three stages to merge. Reviewers will request changes for any stage that does not pass.
 
 ## Community
 
-Feel free to join discussions in the [issues section](https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-Using-LangGraph/issues).  
-We value respectful, constructive, and inclusive communication.
-
----
+Discussion happens in GitHub Issues and PRs. Be respectful, be concrete, be direct. Disagreements about technical direction are welcome; personal attacks are not. The [Code of Conduct](CODE_OF_CONDUCT.md) applies to all participation.
 
 ## Attribution
 
-This Contributing Guide is adapted from the [Atom Contributing Guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md) and [GenAI Roadmap with LangChain](https://github.com/AdilShamim8/GenAI-Roadmap-with-Notes-Using-LangChain).
-
----
-
-<div align="center">
-
-Thank you for contributing to the Agentic AI Roadmap!  
-Your efforts help make AI education more accessible to everyone. 
-
-</div>
+This Contributing Guide is adapted from the Atom Contributing Guide and the AI Engineering Field Guide by Alexey Grigorev.
