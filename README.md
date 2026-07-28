@@ -73,5 +73,4 @@ A small set of runnable Python files in [examples/](examples/) that demonstrate 
 Contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) for the editorial bar, the templates, and the review process. Read [STYLING.md](STYLING.md) for the formatting rules that every file in this repo follows.
 
 ## License
-
 MIT. See [LICENSE](LICENSE).
