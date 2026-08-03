@@ -1,0 +1,22 @@
+# --- Orchestration ---
+langgraph>=0.2.0
+
+# --- Core tools ---
+requests>=2.31
+beautifulsoup4>=4.12
+pypdf>=4.0
+python-dotenv>=1.0
+click>=8.1
+
+# --- Free web search backend (no API key required) ---
+ddgs>=9.0
+
+# --- LLM provider SDKs ---
+# You only need the one matching LLM_PROVIDER in your .env, but installing
+# both costs little and lets you switch providers without reinstalling.
+anthropic>=0.34
+openai>=1.40
+
+# --- Optional: higher-quality search backend (needs TAVILY_API_KEY) ---
+# Uncomment if you want to use Tavily instead of DuckDuckGo:
+# tavily-python>=0.5
