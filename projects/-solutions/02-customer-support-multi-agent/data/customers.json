@@ -1,0 +1,23 @@
+[
+  {
+    "customer_id": "CUST-1001",
+    "name": "Maria Chen",
+    "email": "maria.chen@example.com",
+    "plan": "Pro",
+    "since": "2023-02-14"
+  },
+  {
+    "customer_id": "CUST-1002",
+    "name": "Rafael Costa",
+    "email": "rafael.costa@example.com",
+    "plan": "Basic",
+    "since": "2024-06-01"
+  },
+  {
+    "customer_id": "CUST-1003",
+    "name": "Aisha Rahman",
+    "email": "aisha.rahman@example.com",
+    "plan": "Enterprise",
+    "since": "2021-11-30"
+  }
+]

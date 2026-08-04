@@ -1,0 +1,22 @@
+# --- core orchestration -----------------------------------------------------
+langgraph>=0.2.60,<0.4.0
+langchain-core>=0.3.29,<0.4.0
+
+# --- LLM providers (only the one you configure via .env actually gets used;
+#     both are listed so either ANTHROPIC_API_KEY or OPENAI_API_KEY works
+#     out of the box) ------------------------------------------------------
+langchain-anthropic>=0.3.0,<0.4.0
+langchain-openai>=0.2.14,<0.3.0
+
+# --- interfaces --------------------------------------------------------------
+fastapi>=0.110.0,<1.0.0
+uvicorn[standard]>=0.27.0,<1.0.0
+streamlit>=1.35.0,<2.0.0
+
+# --- retrieval / utils --------------------------------------------------------
+scikit-learn>=1.4.0,<2.0.0
+python-dotenv>=1.0.0,<2.0.0
+pydantic>=2.5.0,<3.0.0
+
+# --- testing -------------------------------------------------------------------
+pytest>=8.0.0,<9.0.0

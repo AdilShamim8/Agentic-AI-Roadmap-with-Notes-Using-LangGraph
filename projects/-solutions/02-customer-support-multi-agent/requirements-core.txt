@@ -1,0 +1,7 @@
+# Minimal deps to run and test only `core/` (business logic, no LLM
+# orchestration). Handy for quick iteration or CI stages that don't need
+# the full LangGraph stack. Install with:
+#   pip install -r requirements-core.txt
+scikit-learn>=1.4.0,<2.0.0
+python-dotenv>=1.0.0,<2.0.0
+pytest>=8.0.0,<9.0.0

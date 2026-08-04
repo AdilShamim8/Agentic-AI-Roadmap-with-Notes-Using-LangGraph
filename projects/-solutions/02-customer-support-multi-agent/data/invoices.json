@@ -1,0 +1,29 @@
+[
+  {
+    "invoice_id": "INV-9001",
+    "customer_id": "CUST-1001",
+    "amount": 29.99,
+    "currency": "USD",
+    "status": "paid",
+    "date": "2026-07-01",
+    "description": "Pro plan - monthly subscription"
+  },
+  {
+    "invoice_id": "INV-9002",
+    "customer_id": "CUST-1002",
+    "amount": 9.99,
+    "currency": "USD",
+    "status": "failed",
+    "date": "2026-07-15",
+    "description": "Basic plan - monthly subscription"
+  },
+  {
+    "invoice_id": "INV-9003",
+    "customer_id": "CUST-1003",
+    "amount": 199.0,
+    "currency": "USD",
+    "status": "paid",
+    "date": "2026-06-20",
+    "description": "Enterprise plan - annual add-on seats"
+  }
+]

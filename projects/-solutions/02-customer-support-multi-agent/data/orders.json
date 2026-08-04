@@ -1,0 +1,38 @@
+[
+  {
+    "order_id": "ORD-5001",
+    "customer_id": "CUST-1001",
+    "item": "Wireless Keyboard",
+    "status": "shipped",
+    "carrier": "UPS",
+    "tracking_number": "1Z999AA10123456784",
+    "eta": "2026-08-06"
+  },
+  {
+    "order_id": "ORD-5002",
+    "customer_id": "CUST-1002",
+    "item": "USB-C Hub",
+    "status": "processing",
+    "carrier": null,
+    "tracking_number": null,
+    "eta": "2026-08-10"
+  },
+  {
+    "order_id": "ORD-5003",
+    "customer_id": "CUST-1003",
+    "item": "27-inch Monitor",
+    "status": "delivered",
+    "carrier": "FedEx",
+    "tracking_number": "794658125421",
+    "eta": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-5004",
+    "customer_id": "CUST-1001",
+    "item": "Laptop Stand",
+    "status": "delayed",
+    "carrier": "UPS",
+    "tracking_number": "1Z999AA10123456999",
+    "eta": "2026-08-15"
+  }
+]
