@@ -72,4 +72,4 @@ graph LR
 
 ## Solution
 
-Reference solution: [projects/-solutions/02-customer-support-multi-agent/](-solutions/02-customer-support-multi-agent/) (coming soon). Build your own first.
+Reference solution: [projects/-solutions/02-customer-support-multi-agent/](https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects/tree/main/projects/-solutions/02-customer-support-multi-agent) (coming soon). Build your own first.
