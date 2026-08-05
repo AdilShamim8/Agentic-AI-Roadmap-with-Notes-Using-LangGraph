@@ -1,0 +1,28 @@
+[project]
+name = "knowledge-manager"
+version = "0.1.0"
+description = "Personal Knowledge Manager — RAG + graph memory + multi-modal ingestion"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Adil Shamim8 / built by Super Z" }]
+license = { text = "MIT" }
+
+[project.scripts]
+km-ingest = "scripts.ingest:main"
+km-ask = "scripts.ask:main"
+km-graph = "scripts.graph_show:main"
+km-reset = "scripts.reset_db:main"
+km-mcp = "knowledge_manager.mcp.server:main"
+km-eval = "eval.run_eval:main"
+
+[tool.setuptools.packages.find]
+include = ["knowledge_manager*", "scripts*", "eval*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
