@@ -1,0 +1,277 @@
+{
+  "n_documents": 53,
+  "n_labeled": 20,
+  "n_qa_pairs": 35,
+  "kind_counts": {
+    "md": 27,
+    "html": 13,
+    "pdf": 13
+  },
+  "documents": [
+    {
+      "slug": "alan_turing_life",
+      "kind": "md",
+      "file": "alan_turing_life.md"
+    },
+    {
+      "slug": "bletchley_park",
+      "kind": "md",
+      "file": "bletchley_park.md"
+    },
+    {
+      "slug": "enigma_machine",
+      "kind": "md",
+      "file": "enigma_machine.md"
+    },
+    {
+      "slug": "turing_machine_concept",
+      "kind": "md",
+      "file": "turing_machine_concept.md"
+    },
+    {
+      "slug": "ai_winter_1970s",
+      "kind": "md",
+      "file": "ai_winter_1970s.md"
+    },
+    {
+      "slug": "deep_learning_rise",
+      "kind": "html",
+      "file": "deep_learning_rise.html"
+    },
+    {
+      "slug": "transformer_architecture",
+      "kind": "md",
+      "file": "transformer_architecture.md"
+    },
+    {
+      "slug": "openai_company",
+      "kind": "html",
+      "file": "openai_company.html"
+    },
+    {
+      "slug": "anthropic_company",
+      "kind": "md",
+      "file": "anthropic_company.md"
+    },
+    {
+      "slug": "google_deepmind",
+      "kind": "md",
+      "file": "google_deepmind.md"
+    },
+    {
+      "slug": "python_history",
+      "kind": "pdf",
+      "file": "python_history.pdf"
+    },
+    {
+      "slug": "linux_kernel",
+      "kind": "md",
+      "file": "linux_kernel.md"
+    },
+    {
+      "slug": "git_version_control",
+      "kind": "html",
+      "file": "git_version_control.html"
+    },
+    {
+      "slug": "docker_containers",
+      "kind": "html",
+      "file": "docker_containers.html"
+    },
+    {
+      "slug": "rust_language",
+      "kind": "html",
+      "file": "rust_language.html"
+    },
+    {
+      "slug": "crispr_gene_editing",
+      "kind": "pdf",
+      "file": "crispr_gene_editing.pdf"
+    },
+    {
+      "slug": "general_relativity",
+      "kind": "md",
+      "file": "general_relativity.md"
+    },
+    {
+      "slug": "quantum_mechanics_origins",
+      "kind": "html",
+      "file": "quantum_mechanics_origins.html"
+    },
+    {
+      "slug": "standard_model",
+      "kind": "md",
+      "file": "standard_model.md"
+    },
+    {
+      "slug": "human_genome_project",
+      "kind": "md",
+      "file": "human_genome_project.md"
+    },
+    {
+      "slug": "crick_watson_dna",
+      "kind": "html",
+      "file": "crick_watson_dna.html"
+    },
+    {
+      "slug": "roman_republic",
+      "kind": "md",
+      "file": "roman_republic.md"
+    },
+    {
+      "slug": "french_revolution",
+      "kind": "pdf",
+      "file": "french_revolution.pdf"
+    },
+    {
+      "slug": "industrial_revolution",
+      "kind": "md",
+      "file": "industrial_revolution.md"
+    },
+    {
+      "slug": "berlin_wall",
+      "kind": "pdf",
+      "file": "berlin_wall.pdf"
+    },
+    {
+      "slug": "apollo_moon_landings",
+      "kind": "pdf",
+      "file": "apollo_moon_landings.pdf"
+    },
+    {
+      "slug": "enlightenment_thinkers",
+      "kind": "html",
+      "file": "enlightenment_thinkers.html"
+    },
+    {
+      "slug": "stoicism",
+      "kind": "pdf",
+      "file": "stoicism.pdf"
+    },
+    {
+      "slug": "sahara_desert",
+      "kind": "html",
+      "file": "sahara_desert.html"
+    },
+    {
+      "slug": "amazon_rainforest",
+      "kind": "md",
+      "file": "amazon_rainforest.md"
+    },
+    {
+      "slug": "apple_company_history",
+      "kind": "md",
+      "file": "apple_company_history.md"
+    },
+    {
+      "slug": "microsoft_history",
+      "kind": "md",
+      "file": "microsoft_history.md"
+    },
+    {
+      "slug": "amazon_company_history",
+      "kind": "pdf",
+      "file": "amazon_company_history.pdf"
+    },
+    {
+      "slug": "tesla_company_history",
+      "kind": "html",
+      "file": "tesla_company_history.html"
+    },
+    {
+      "slug": "george_orwell",
+      "kind": "pdf",
+      "file": "george_orwell.pdf"
+    },
+    {
+      "slug": "penicillin_discovery",
+      "kind": "md",
+      "file": "penicillin_discovery.md"
+    },
+    {
+      "slug": "smallpox_eradication",
+      "kind": "pdf",
+      "file": "smallpox_eradication.pdf"
+    },
+    {
+      "slug": "keynesian_economics",
+      "kind": "pdf",
+      "file": "keynesian_economics.pdf"
+    },
+    {
+      "slug": "paris_agreement",
+      "kind": "md",
+      "file": "paris_agreement.md"
+    },
+    {
+      "slug": "kyoto_protocol",
+      "kind": "html",
+      "file": "kyoto_protocol.html"
+    },
+    {
+      "slug": "fermat_last_theorem",
+      "kind": "html",
+      "file": "fermat_last_theorem.html"
+    },
+    {
+      "slug": "riemann_hypothesis",
+      "kind": "md",
+      "file": "riemann_hypothesis.md"
+    },
+    {
+      "slug": "berlin_conference_1884",
+      "kind": "html",
+      "file": "berlin_conference_1884.html"
+    },
+    {
+      "slug": "manhattan_project",
+      "kind": "pdf",
+      "file": "manhattan_project.pdf"
+    },
+    {
+      "slug": "printing_press",
+      "kind": "md",
+      "file": "printing_press.md"
+    },
+    {
+      "slug": "magna_carta",
+      "kind": "md",
+      "file": "magna_carta.md"
+    },
+    {
+      "slug": "euro_currency",
+      "kind": "md",
+      "file": "euro_currency.md"
+    },
+    {
+      "slug": "bitcoin_whitepaper",
+      "kind": "md",
+      "file": "bitcoin_whitepaper.md"
+    },
+    {
+      "slug": "web_brief_history",
+      "kind": "md",
+      "file": "web_brief_history.md"
+    },
+    {
+      "slug": "eiffel_tower",
+      "kind": "pdf",
+      "file": "eiffel_tower.pdf"
+    },
+    {
+      "slug": "voyager_mission",
+      "kind": "md",
+      "file": "voyager_mission.md"
+    },
+    {
+      "slug": "harvey_hurricane",
+      "kind": "md",
+      "file": "harvey_hurricane.md"
+    },
+    {
+      "slug": "space_x_falcon",
+      "kind": "pdf",
+      "file": "space_x_falcon.pdf"
+    }
+  ]
+}

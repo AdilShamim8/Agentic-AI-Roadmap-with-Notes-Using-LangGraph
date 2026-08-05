@@ -1,0 +1,35 @@
+{"id": 1, "question": "Who designed the Bombe?", "expected_sources": ["alan_turing_life.md", "bletchley_park.md", "enigma_machine.md"], "expected_answer_summary": "Alan Turing designed the Bombe."}
+{"id": 2, "question": "Where was Alan Turing born?", "expected_sources": ["alan_turing_life.md"], "expected_answer_summary": "London."}
+{"id": 3, "question": "Which university did Alan Turing attend?", "expected_sources": ["alan_turing_life.md"], "expected_answer_summary": "University of Cambridge."}
+{"id": 4, "question": "What machine did Tommy Flowers design?", "expected_sources": ["bletchley_park.md"], "expected_answer_summary": "Colossus."}
+{"id": 5, "question": "Who invented the Enigma machine?", "expected_sources": ["enigma_machine.md"], "expected_answer_summary": "Arthur Scherbius."}
+{"id": 6, "question": "What is the Church-Turing thesis?", "expected_sources": ["turing_machine_concept.md"], "expected_answer_summary": "Any effectively calculable function can be computed by a Turing machine."}
+{"id": 7, "question": "Who proved the Halting Problem undecidable?", "expected_sources": ["turing_machine_concept.md"], "expected_answer_summary": "Alan Turing."}
+{"id": 8, "question": "What was the ALPAC report?", "expected_sources": ["ai_winter_1970s.md"], "expected_answer_summary": "A 1966 report by the US National Research Council concluding machine translation was not feasible."}
+{"id": 9, "question": "Who invented the Perceptron?", "expected_sources": ["ai_winter_1970s.md"], "expected_answer_summary": "Frank Rosenblatt."}
+{"id": 10, "question": "What is AlexNet?", "expected_sources": ["deep_learning_rise.html"], "expected_answer_summary": "A deep CNN that won the 2012 ImageNet competition, developed by Krizhevsky, Sutskever, and Hinton."}
+{"id": 11, "question": "Who invented LSTM?", "expected_sources": ["deep_learning_rise.html"], "expected_answer_summary": "Sepp Hochreiter and Jürgen Schmidhuber in 1997."}
+{"id": 12, "question": "Who introduced the Transformer architecture?", "expected_sources": ["transformer_architecture.md", "deep_learning_rise.html"], "expected_answer_summary": "Ashish Vaswani and colleagues at Google in 2017."}
+{"id": 13, "question": "When was OpenAI founded?", "expected_sources": ["openai_company.html"], "expected_answer_summary": "December 2015 in San Francisco."}
+{"id": 14, "question": "Who invested USD 10 billion in OpenAI in 2023?", "expected_sources": ["openai_company.html"], "expected_answer_summary": "Microsoft."}
+{"id": 15, "question": "Who founded Anthropic?", "expected_sources": ["anthropic_company.md"], "expected_answer_summary": "Dario Amodei and Daniela Amodei."}
+{"id": 16, "question": "What is Constitutional AI?", "expected_sources": ["anthropic_company.md"], "expected_answer_summary": "A training method where the model evaluates its own outputs against a written constitution of principles."}
+{"id": 17, "question": "Who acquired DeepMind in 2014?", "expected_sources": ["google_deepmind.md"], "expected_answer_summary": "Google, for USD 500 million."}
+{"id": 18, "question": "Who won the 2024 Nobel Prize in Chemistry for AlphaFold?", "expected_sources": ["google_deepmind.md"], "expected_answer_summary": "Demis Hassabis and John Jumper."}
+{"id": 19, "question": "Who developed CRISPR-Cas9?", "expected_sources": ["crispr_gene_editing.pdf"], "expected_answer_summary": "Jennifer Doudna and Emmanuelle Charpentier in 2012."}
+{"id": 20, "question": "What was the first approved CRISPR therapy?", "expected_sources": ["crispr_gene_editing.pdf"], "expected_answer_summary": "Casgevy for sickle cell disease, approved by the UK MHRA in November 2023."}
+{"id": 21, "question": "Who crossed the Rubicon in 49 BCE?", "expected_sources": ["roman_republic.md"], "expected_answer_summary": "Julius Caesar."}
+{"id": 22, "question": "Where was the Battle of Actium fought?", "expected_sources": ["roman_republic.md"], "expected_answer_summary": "It ended the Roman Republic; Augustus defeated Mark Antony and Cleopatra."}
+{"id": 23, "question": "When did the French Revolution begin?", "expected_sources": ["french_revolution.pdf"], "expected_answer_summary": "14 July 1789 with the storming of the Bastille in Paris."}
+{"id": 24, "question": "Who led the Committee of Public Safety during the Reign of Terror?", "expected_sources": ["french_revolution.pdf"], "expected_answer_summary": "Maximilien Robespierre."}
+{"id": 25, "question": "Who co-founded Apple with Steve Jobs?", "expected_sources": ["apple_company_history.md"], "expected_answer_summary": "Steve Wozniak and Ronald Wayne."}
+{"id": 26, "question": "What was the first product Apple sold?", "expected_sources": ["apple_company_history.md"], "expected_answer_summary": "The Apple I, hand-built by Steve Wozniak."}
+{"id": 27, "question": "Who succeeded Bill Gates as Microsoft CEO?", "expected_sources": ["microsoft_history.md"], "expected_answer_summary": "Steve Ballmer in January 2000."}
+{"id": 28, "question": "What was Amazon's original name?", "expected_sources": ["amazon_company_history.pdf"], "expected_answer_summary": "Cadabra (as in abracadabra)."}
+{"id": 29, "question": "Who was Tesla named after?", "expected_sources": ["tesla_company_history.html"], "expected_answer_summary": "Nikola Tesla, the Serbian-American inventor."}
+{"id": 30, "question": "When did the Berlin Conference take place?", "expected_sources": ["berlin_conference_1884.html"], "expected_answer_summary": "From 15 November 1884 to 26 February 1885 in Berlin, Germany."}
+{"id": 31, "question": "Who organised the Berlin Conference?", "expected_sources": ["berlin_conference_1884.html"], "expected_answer_summary": "Otto von Bismarck, Chancellor of Germany."}
+{"id": 32, "question": "Who wrote Animal Farm?", "expected_sources": ["george_orwell.pdf"], "expected_answer_summary": "George Orwell, published on 17 August 1945 by Secker and Warburg."}
+{"id": 33, "question": "Where was Nineteen Eighty-Four written?", "expected_sources": ["george_orwell.pdf"], "expected_answer_summary": "Barnhill, a remote farmhouse on the Scottish island of Jura."}
+{"id": 34, "question": "Who led the Los Alamos laboratory during the Manhattan Project?", "expected_sources": ["manhattan_project.pdf"], "expected_answer_summary": "J. Robert Oppenheimer."}
+{"id": 35, "question": "What was the first self-sustaining nuclear chain reaction?", "expected_sources": ["manhattan_project.pdf"], "expected_answer_summary": "Chicago Pile-1, built by Enrico Fermi at the University of Chicago on 2 December 1942."}
