@@ -1,0 +1,7 @@
+[project]
+name = "case-02-wrong-exception"
+version = "0.0.0"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

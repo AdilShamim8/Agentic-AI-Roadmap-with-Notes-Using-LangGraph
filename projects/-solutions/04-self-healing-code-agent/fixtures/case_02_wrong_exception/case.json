@@ -1,0 +1,6 @@
+{
+  "name": "case_02_wrong_exception",
+  "target_test": "tests/test_calc.py::test_divide_by_zero",
+  "bug_summary": "divide raises ValueError instead of ZeroDivisionError",
+  "difficulty": "easy"
+}

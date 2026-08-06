@@ -1,0 +1,6 @@
+{
+  "name": "case_01_off_by_one",
+  "target_test": "tests/test_calc.py::test_sum_range_basic",
+  "bug_summary": "sum_range uses exclusive upper bound; should be inclusive",
+  "difficulty": "easy"
+}

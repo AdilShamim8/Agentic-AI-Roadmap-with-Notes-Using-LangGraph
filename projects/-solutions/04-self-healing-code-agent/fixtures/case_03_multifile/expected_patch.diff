@@ -1,0 +1,9 @@
+--- a/src/mathlib/stats.py
++++ b/src/mathlib/stats.py
+@@ -18,3 +18,3 @@
+     # 1-based rank.
+     rank = max(1, (pct * n + 99) // 100)
+-    # BUG: passing a 1-based rank directly to `select`, which expects 0-based.
+-    return select(sorted_vals, rank)
++    # Convert 1-based rank to 0-based index for `select`.
++    return select(sorted_vals, rank - 1)

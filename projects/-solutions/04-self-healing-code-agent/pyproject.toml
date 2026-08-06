@@ -1,0 +1,82 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "self-heal"
+version = "0.1.0"
+description = "Self-healing code agent: reproduces a failing test, diagnoses, patches, verifies, and iterates with reflexion."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Self-heal contributors" }]
+keywords = ["llm", "agent", "langgraph", "swe-agent", "reflexion", "pytest"]
+
+dependencies = [
+    "langgraph>=0.2.50,<0.3",
+    "langchain-core>=0.3,<0.4",
+    "openai>=1.40,<2",
+    "anthropic>=0.34,<1",
+    "typer>=0.12,<1",
+    "rich>=13.7,<14",
+    "pydantic>=2.7,<3",
+    "pydantic-settings>=2.3,<3",
+    "python-dotenv>=1.0,<2",
+    "structlog>=24.1,<25",
+    "tenacity>=8.3,<9",
+    "tomli>=2.0; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+github = ["PyGithub>=2.3,<3"]
+langsmith = ["langsmith>=0.1.100,<1"]
+dev = [
+    "pytest>=8.2,<9",
+    "pytest-cov>=5,<6",
+    "ruff>=0.5,<1",
+    "mypy>=1.10,<2",
+    "types-requests",
+]
+
+[project.scripts]
+self-heal = "self_heal.cli:app"
+self-heal-eval = "evals.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/self_heal", "evals"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "evals", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "C4", "SIM", "RUF"]
+# E501: line length handled by formatter
+# B008: Typer/FastAPI idiomatic use of Option/Argument in defaults
+ignore = ["E501", "B008"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["self_heal", "evals"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+python_version = "3.10"
+strict = false
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+files = ["src/self_heal", "evals"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = [
+    "integration: requires real LLM API key",
+    "slow: long-running tests",
+]
+
+[tool.coverage.run]
+source = ["src/self_heal", "evals"]

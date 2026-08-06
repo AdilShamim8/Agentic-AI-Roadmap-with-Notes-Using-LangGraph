@@ -1,0 +1,8 @@
+--- a/src/calc.py
++++ b/src/calc.py
+@@ -8,4 +8,4 @@
+     total = 0
+-    for i in range(start, end):  # bug: should be end + 1
++    for i in range(start, end + 1):
+         total += i
+     return total

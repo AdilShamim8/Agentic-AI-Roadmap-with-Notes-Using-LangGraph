@@ -1,0 +1,7 @@
+{
+  "name": "case_03_multifile",
+  "target_test": "tests/test_stats.py::test_percentile_50",
+  "bug_summary": "stats.percentile passes 1-based rank to indexing.select which expects 0-based",
+  "difficulty": "medium",
+  "multifile": true
+}
