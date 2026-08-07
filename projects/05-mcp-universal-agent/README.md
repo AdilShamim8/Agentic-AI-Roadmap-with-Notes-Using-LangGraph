@@ -64,4 +64,4 @@ graph LR
 
 ## Solution
 
-Reference solution: [projects/-solutions/05-mcp-universal-agent/](-solutions/05-mcp-universal-agent/) (coming soon). Build your own first.
+Reference solution: [projects/-solutions/05-mcp-universal-agent/](https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects/tree/main/projects/-solutions/05-mcp-universal-agent) (coming soon). Build your own first.
