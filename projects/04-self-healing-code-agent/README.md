@@ -67,4 +67,4 @@ graph LR
 
 ## Solution
 
-Reference solution: [projects/-solutions/04-self-healing-code-agent/](-solutions/04-self-healing-code-agent/) (coming soon). Build your own first.
+Reference solution: [projects/-solutions/04-self-healing-code-agent/](https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects/tree/main/projects/-solutions/04-self-healing-code-agent) (coming soon). Build your own first.
