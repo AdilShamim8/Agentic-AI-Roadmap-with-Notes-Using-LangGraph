@@ -1,0 +1,10 @@
+{
+  "tasks": [
+    {"id": 1, "title": "Wire up LangSmith tracing", "done": false, "owner": "dana"},
+    {"id": 2, "title": "Write eval rubric for tool-selection accuracy", "done": true, "owner": "priya"},
+    {"id": 3, "title": "Implement retrieval-based tool selection", "done": true, "owner": "dana"},
+    {"id": 4, "title": "Add SQLite MCP server", "done": true, "owner": "amir"},
+    {"id": 5, "title": "Add 30-goal eval dataset", "done": false, "owner": "priya"},
+    {"id": 6, "title": "Handle tool-failure robustness eval", "done": false, "owner": "dana"}
+  ]
+}

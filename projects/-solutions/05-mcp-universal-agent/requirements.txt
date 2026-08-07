@@ -1,0 +1,21 @@
+# MCP Universal Agent – runtime dependencies
+#
+# Pin minor versions to keep the reference implementation reproducible.
+# Tested with Python 3.10 / 3.11 / 3.12.
+
+# --- MCP protocol -------------------------------------------------------------
+mcp>=1.27.0              # FastMCP server + stdio ClientSession
+
+# --- Agent orchestration ------------------------------------------------------
+langgraph>=1.2.0         # discover -> list -> select -> execute -> synthesize loop
+langchain-core>=1.5.0    # Message primitives shared with LangGraph
+
+# --- LLM providers (optional – pick one) -------------------------------------
+openai>=2.0.0            # GPT-4o / GPT-4o-mini
+# anthropic>=0.40.0      # Uncomment to use Claude Sonnet instead
+
+# --- Retrieval-based tool selection -------------------------------------------
+numpy>=1.26.0            # cosine similarity over tool-description embeddings
+
+# --- Dev / eval ---------------------------------------------------------------
+# pytest>=8.0.0          # Uncomment to run the unit tests in tests/

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "description": "Local MCP server registry. The agent reads this file at startup to discover which servers it may connect to. Each entry describes how to spawn the server (stdio transport) and a human-readable category used by the 'categorized' tool-selection strategy.",
+  "servers": [
+    {
+      "name": "filesystem",
+      "category": "files",
+      "description": "Read, write, list and search files under the project's ./data directory.",
+      "command": "python3",
+      "args": ["-m", "mcp_servers.filesystem_server"],
+      "env": {
+        "MCP_FS_ROOT": "./data"
+      }
+    },
+    {
+      "name": "calculator",
+      "category": "math",
+      "description": "Arithmetic, algebra and unit-conversion helpers. Pure functions, no side effects.",
+      "command": "python3",
+      "args": ["-m", "mcp_servers.calculator_server"]
+    },
+    {
+      "name": "sqlite",
+      "category": "data",
+      "description": "Run SQL queries (SELECT / INSERT / UPDATE / DELETE) against a local SQLite database stored under ./data/agent.db.",
+      "command": "python3",
+      "args": ["-m", "mcp_servers.sqlite_server"],
+      "env": {
+        "MCP_SQLITE_PATH": "./data/agent.db"
+      }
+    },
+    {
+      "name": "search",
+      "category": "web",
+      "description": "Web-search style helpers. Uses a small in-memory knowledge base so the project runs offline; swap the implementation for a real search API in production.",
+      "command": "python3",
+      "args": ["-m", "mcp_servers.search_server"]
+    },
+    {
+      "name": "custom",
+      "category": "misc",
+      "description": "Miscellaneous utility tools: current time, currency conversion (static rates), string transforms, UUID generation and a notes key-value store.",
+      "command": "python3",
+      "args": ["-m", "mcp_servers.custom_server"]
+    }
+  ]
+}

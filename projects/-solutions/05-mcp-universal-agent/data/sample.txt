@@ -1,0 +1,33 @@
+Project Atlas – Q3 Launch Plan
+==============================
+
+Team: Platform Infrastructure
+Owner: Dana Lee (dana@example.com)
+Status: On track, ship date 2025-09-30
+
+1. Goals
+   - Migrate the billing service from EC2 to EKS (cost: -18%).
+   - Ship the new self-serve onboarding flow (target activation: 45%).
+   - Reduce p95 API latency from 420ms to 250ms.
+
+2. Milestones
+   - 2025-08-15 : Billing migration code-freeze.
+   - 2025-08-22 : Onboarding flow feature-complete.
+   - 2025-09-05 : Internal dogfood rollout.
+   - 2025-09-20 : GA launch.
+   - 2025-09-30 : Retro.
+
+3. Risks
+   - Onboarding depends on the new identity service (owned by Auth team).
+   - Billing migration blocked on PCI re-certification (estimated 2025-08-30).
+
+4. Budget
+   - Total Q3 budget: $480,000.
+   - Spent to date: $182,500.
+   - Remaining: $297,500.
+
+5. Contacts
+   - Dana Lee   – Platform lead
+   - Amir Khan  – Billing service owner
+   - Priya N.   – Onboarding PM
+   - Sam Okoro  – Auth team liaison

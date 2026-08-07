@@ -1,0 +1,30 @@
+{"id":"g01","goal":"List every file in the sandbox.","expected_tools":["filesystem.list_files"],"category":"files","difficulty":"easy"}
+{"id":"g02","goal":"Read the contents of sample.txt.","expected_tools":["filesystem.read_file"],"category":"files","difficulty":"easy"}
+{"id":"g03","goal":"Which file mentions 'budget'?","expected_tools":["filesystem.search_files"],"category":"files","difficulty":"easy"}
+{"id":"g04","goal":"Write a file called report.txt containing the text 'Q3 launch ready'.","expected_tools":["filesystem.write_file"],"category":"files","difficulty":"easy"}
+{"id":"g05","goal":"How many lines does notes.md have?","expected_tools":["filesystem.file_stats"],"category":"files","difficulty":"medium"}
+{"id":"g06","goal":"What is 17 * 23 + 5?","expected_tools":["calculator.evaluate"],"category":"math","difficulty":"easy"}
+{"id":"g07","goal":"Compute the average of 12, 18, 24, 30, 36.","expected_tools":["calculator.statistics"],"category":"math","difficulty":"easy"}
+{"id":"g08","goal":"Convert 100 km to miles.","expected_tools":["calculator.convert_units"],"category":"math","difficulty":"easy"}
+{"id":"g09","goal":"What is 18 percent of 480000?","expected_tools":["calculator.percentage"],"category":"math","difficulty":"medium"}
+{"id":"g10","goal":"What is the square root of 144 plus log10 of 1000?","expected_tools":["calculator.evaluate"],"category":"math","difficulty":"medium"}
+{"id":"g11","goal":"List every table in the SQLite database.","expected_tools":["sqlite.list_tables"],"category":"data","difficulty":"easy"}
+{"id":"g12","goal":"Show the schema of the users table.","expected_tools":["sqlite.describe_table"],"category":"data","difficulty":"easy"}
+{"id":"g13","goal":"How many users are in the database?","expected_tools":["sqlite.run_query"],"category":"data","difficulty":"medium"}
+{"id":"g14","goal":"Which users signed up before March 2024?","expected_tools":["sqlite.run_query"],"category":"data","difficulty":"medium"}
+{"id":"g15","goal":"What is the total revenue across all orders?","expected_tools":["sqlite.run_query"],"category":"data","difficulty":"medium"}
+{"id":"g16","goal":"Insert a new user named 'Test User' with email test@example.com.","expected_tools":["sqlite.run_query"],"category":"data","difficulty":"hard"}
+{"id":"g17","goal":"Search the web for 'Model Context Protocol'.","expected_tools":["search.search_web"],"category":"web","difficulty":"easy"}
+{"id":"g18","goal":"Fetch the full body of the Wikipedia page on MCP.","expected_tools":["search.fetch_page"],"category":"web","difficulty":"medium"}
+{"id":"g19","goal":"What time is it in Karachi right now?","expected_tools":["search.current_time"],"category":"web","difficulty":"easy"}
+{"id":"g20","goal":"What's the weather in San Francisco?","expected_tools":["search.search_web"],"category":"web","difficulty":"medium"}
+{"id":"g21","goal":"Generate a UUID for me.","expected_tools":["custom.uuid_v4"],"category":"misc","difficulty":"easy"}
+{"id":"g22","goal":"What is the SHA-256 hash of 'hello'?","expected_tools":["custom.hash_text"],"category":"misc","difficulty":"easy"}
+{"id":"g23","goal":"Convert 100 USD to PKR.","expected_tools":["custom.convert_currency"],"category":"misc","difficulty":"easy"}
+{"id":"g24","goal":"Slugify the string 'Hello World Example'.","expected_tools":["custom.transform_string"],"category":"misc","difficulty":"easy"}
+{"id":"g25","goal":"Store 'hello' under the key 'greeting' in the scratchpad.","expected_tools":["custom.kv_store"],"category":"misc","difficulty":"medium"}
+{"id":"g26","goal":"Read sample.txt and tell me who the project owner is.","expected_tools":["filesystem.read_file"],"category":"files","difficulty":"medium","note":"answer is in the file; agent must read then synthesise"}
+{"id":"g27","goal":"List files, then read the first .md file you find.","expected_tools":["filesystem.list_files","filesystem.read_file"],"category":"files","difficulty":"hard","note":"multi-step"}
+{"id":"g28","goal":"How many users are there and what is their average signup date?","expected_tools":["sqlite.run_query"],"category":"data","difficulty":"hard","note":"may need 2 queries"}
+{"id":"g29","goal":"Convert 50 USD to PKR and also tell me what time it is in Karachi.","expected_tools":["custom.convert_currency","search.current_time"],"category":"misc","difficulty":"hard","note":"cross-server composition"}
+{"id":"g30","goal":"Read notes.md, find the section about tool selection, and summarise it in two sentences.","expected_tools":["filesystem.read_file"],"category":"files","difficulty":"hard","note":"read + summarise"}
