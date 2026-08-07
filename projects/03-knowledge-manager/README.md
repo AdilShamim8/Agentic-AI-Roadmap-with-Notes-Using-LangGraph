@@ -69,4 +69,4 @@ graph LR
 
 ## Solution
 
-Reference solution: [projects/-solutions/03-knowledge-manager/](-solutions/03-knowledge-manager/) (coming soon). Build your own first.
+Reference solution: [projects/-solutions/03-knowledge-manager/](https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects/tree/main/projects/-solutions/03-knowledge-manager) (coming soon). Build your own first.
