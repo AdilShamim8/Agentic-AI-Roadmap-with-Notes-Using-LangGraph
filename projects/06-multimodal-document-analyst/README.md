@@ -56,4 +56,4 @@ This project exercises multimodal ingestion (text + images + tables), multimodal
 
 ## Solution
 
-Reference solution: [projects/-solutions/06-multimodal-document-analyst/](-solutions/06-multimodal-document-analyst/) (coming soon). Build your own first.
+Reference solution: [projects/-solutions/06-multimodal-document-analyst/](https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects/tree/main/projects/-solutions/06-multimodal-document-analyst) (coming soon). Build your own first.
