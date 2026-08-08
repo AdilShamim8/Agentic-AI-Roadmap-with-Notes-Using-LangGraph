@@ -1,0 +1,37 @@
+# Core LLM / orchestration
+langgraph>=0.2.0
+langchain-core>=0.3.0
+langchain>=0.3.0
+langchain-community>=0.3.0
+
+# Vector store — ChromaDB ships a local SQLite-backed engine, zero infra
+chromadb>=0.5.0
+# Local embeddings (all-MiniLM-L6-v2, 384 dims) used by the chroma_default
+# embedding provider. Auto-downloaded on first use.
+sentence-transformers>=2.7
+
+# Schema / config
+pydantic>=2.5
+pydantic-settings>=2.1
+
+# API server
+fastapi>=0.110
+uvicorn[standard]>=0.27
+python-multipart>=0.0.9
+
+# Web UI
+streamlit>=1.32
+
+# HTTP / SDK
+httpx>=0.27
+tenacity>=8.2
+
+# CLI / pretty printing
+rich>=13.7
+typer>=0.12
+python-dotenv>=1.0
+
+# Dev / test
+pytest>=8.0
+pytest-asyncio>=0.23
+ruff>=0.4

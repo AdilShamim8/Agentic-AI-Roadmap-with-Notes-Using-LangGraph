@@ -1,0 +1,24 @@
+# Dockerfile for the Streamlit UI only.
+# Use this if you want to run the UI separately from the API.
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        libglib2.0-0 libgl1 libsm6 libxrender1 libxext6 curl \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY requirements.txt pyproject.toml ./
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+COPY src ./src
+COPY README.md ./
+RUN pip install -e . --no-deps
+
+EXPOSE 8501
+CMD ["streamlit", "run", "src/doc_analyst/ui/app.py", \
+     "--server.port=8501", "--server.address=0.0.0.0", \
+     "--server.headless=true"]

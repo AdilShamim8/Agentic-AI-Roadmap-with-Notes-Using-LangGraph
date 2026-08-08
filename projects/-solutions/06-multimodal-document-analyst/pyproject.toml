@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multimodal-document-analyst"
+version = "0.1.0"
+description = "Multimodal Document Analyst — ingest PDFs (text + images + tables), index them with multimodal retrieval, and answer questions with element-level citations. Built on LangGraph."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Adil Shamim (project spec)", email = "open-source@example.com" }]
+keywords = ["multimodal", "pdf", "rag", "langgraph", "vlm", "citations"]
+
+dependencies = [
+  "langgraph>=0.2.0",
+  "langchain-core>=0.3.0",
+  "langchain>=0.3.0",
+  "langchain-community>=0.3.0",
+  "chromadb>=0.5.0",
+  "pymupdf>=1.24.0",
+  "pillow>=10.0.0",
+  "pydantic>=2.5",
+  "pydantic-settings>=2.1",
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.27",
+  "streamlit>=1.32",
+  "python-multipart>=0.0.9",
+  "httpx>=0.27",
+  "tenacity>=8.2",
+  "rich>=13.7",
+  "typer>=0.12",
+  "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-asyncio>=0.23",
+  "ruff>=0.4",
+  "mypy>=1.10",
+]
+unstructured = [
+  "unstructured[pdf]>=0.13",
+]
+postgres = [
+  "psycopg[binary]>=3.1",
+  "pgvector>=0.3",
+]
+ocr = [
+  "pytesseract>=0.3.10",
+  "pdf2image>=1.17",
+]
+
+[project.scripts]
+doc-analyst = "doc_analyst.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "W"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true

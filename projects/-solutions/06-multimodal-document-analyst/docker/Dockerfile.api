@@ -1,0 +1,33 @@
+# Dockerfile for the API server only.
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    HF_HOME=/opt/hf-cache \
+    DATA_DIR=/data
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential libglib2.0-0 libgl1 libsm6 libxrender1 libxext6 \
+        curl ca-certificates gnupg \
+    && rm -rf /var/lib/apt/lists/* \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y --no-install-recommends nodejs \
+    && rm -rf /var/lib/apt/lists/* \
+    && npm install -g z-ai-web-dev-sdk \
+    && ln -sf $(which z-ai) /usr/local/bin/z-ai || true
+
+WORKDIR /app
+COPY requirements.txt pyproject.toml ./
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+COPY src ./src
+COPY scripts ./scripts
+COPY samples ./samples
+COPY README.md ./
+RUN pip install -e . --no-deps
+
+RUN mkdir -p /data /opt/hf-cache
+VOLUME ["/data"]
+EXPOSE 8000
+
+CMD ["python", "-m", "doc_analyst.cli", "serve", "--host", "0.0.0.0", "--port", "8000"]

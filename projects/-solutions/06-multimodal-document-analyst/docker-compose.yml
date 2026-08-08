@@ -1,0 +1,62 @@
+# Multimodal Document Analyst — Docker Compose
+# Two services: the FastAPI backend (port 8000) and the Streamlit UI
+# (port 8501). They share a single named volume for `/data` so the index
+# persists between restarts.
+#
+# Usage:
+#   docker compose up            # backend + UI
+#   docker compose up api        # backend only
+#   docker compose run --rm api  python -m doc_analyst.cli ingest /data/samples/*.pdf
+
+services:
+  api:
+    build: .
+    image: multimodal-doc-analyst:latest
+    container_name: doc-analyst-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - doc-data:/data
+      - ./samples:/samples:ro
+    environment:
+      DATA_DIR: /data
+      LOG_LEVEL: INFO
+      VLM_PROVIDER: zai
+      LLM_PROVIDER: zai
+      EMBEDDING_PROVIDER: chroma_default
+      API_HOST: 0.0.0.0
+      API_PORT: 8000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    restart: unless-stopped
+
+  web:
+    image: multimodal-doc-analyst:latest
+    container_name: doc-analyst-web
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "8501:8501"
+    volumes:
+      - doc-data:/data:ro
+    environment:
+      DATA_DIR: /data
+      DOC_ANALYST_API: http://api:8000
+    command:
+      [
+        "streamlit",
+        "run",
+        "/app/src/doc_analyst/ui/app.py",
+        "--server.port=8501",
+        "--server.address=0.0.0.0",
+        "--server.headless=true",
+      ]
+    restart: unless-stopped
+
+volumes:
+  doc-data:
