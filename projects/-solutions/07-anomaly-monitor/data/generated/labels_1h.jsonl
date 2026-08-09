@@ -1,0 +1,2 @@
+{"anomaly_id": "anom-001", "start_ts": 1786272974.2637007, "end_ts": 1786272979.8889697, "kind": "rate_spike"}
+{"anomaly_id": "anom-002", "start_ts": 1786274405.9806833, "end_ts": 1786274429.3924637, "kind": "error_burst"}

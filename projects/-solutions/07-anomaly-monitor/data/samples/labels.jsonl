@@ -1,0 +1,5 @@
+{"anomaly_id": "anom-001", "start_ts": 1700000000.7674162, "end_ts": 1700000000.8174162, "kind": "rate_spike"}
+{"anomaly_id": "anom-002", "start_ts": 1700000002.0542648, "end_ts": 1700000002.1582472, "kind": "error_burst"}
+{"anomaly_id": "anom-003", "start_ts": 1700000002.9398715, "end_ts": 1700000003.1004221, "kind": "unusual_source"}
+{"anomaly_id": "anom-004", "start_ts": 1700000003.640145, "end_ts": 1700000003.78178, "kind": "latency_regression"}
+{"anomaly_id": "anom-005", "start_ts": 1700000004.2429464, "end_ts": 1700000004.380738, "kind": "error_burst"}
