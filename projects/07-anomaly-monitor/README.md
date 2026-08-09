@@ -57,4 +57,4 @@ This project exercises async/streaming agents, real-time decision-making, and HI
 
 ## Solution
 
-Reference solution: [projects/-solutions/07-anomaly-monitor/](-solutions/07-anomaly-monitor/) (coming soon). Build your own first.
+Reference solution: [projects/-solutions/07-anomaly-monitor/](https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects/tree/main/projects/-solutions/07-anomaly-monitor) (coming soon). Build your own first.
