@@ -1,0 +1,18 @@
+# Core dependencies
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+httpx>=0.25.0
+python-dotenv>=1.0.0
+
+# Optional: Real OpenAI backend (uncomment to use)
+# openai>=1.10.0
+
+# Optional: Real LangGraph (uncomment to use)
+# langgraph>=0.2.0
+# langchain-core>=0.2.0
+
+# Development / Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+pytest-cov>=4.1.0

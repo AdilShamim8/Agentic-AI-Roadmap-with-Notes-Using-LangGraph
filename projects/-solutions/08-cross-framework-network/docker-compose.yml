@@ -1,0 +1,78 @@
+# =============================================================================
+# Docker Compose — Cross-Framework Agent Network
+# =============================================================================
+# Runs three services:
+#   1. research-agent  — OpenAI Agents SDK agent (A2A server) on port 8001
+#   2. writer-crew     — CrewAI crew (A2A server) on port 8002
+#   3. supervisor      — LangGraph supervisor (CLI, run on demand)
+#
+# Usage:
+#   docker compose up -d research-agent writer-crew   # start agents
+#   docker compose run --rm supervisor "Your task"    # run supervisor
+#   docker compose down                               # stop all
+# =============================================================================
+
+services:
+  research-agent:
+    build: .
+    container_name: research-agent
+    ports:
+      - "8001:8001"
+    environment:
+      - LLM_BACKEND=${LLM_BACKEND:-mock}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o}
+      - AGENT_HOST=0.0.0.0
+      - AGENT_PORT=8001
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    command: >
+      python -m agents.openai_research.server --host 0.0.0.0 --port 8001
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/.well-known/agent.json"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  writer-crew:
+    build: .
+    container_name: writer-crew
+    ports:
+      - "8002:8002"
+    environment:
+      - LLM_BACKEND=${LLM_BACKEND:-mock}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o}
+      - AGENT_HOST=0.0.0.0
+      - AGENT_PORT=8002
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    command: >
+      python -m agents.crewai_writer.server --host 0.0.0.0 --port 8002
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/.well-known/agent.json"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  supervisor:
+    build: .
+    container_name: supervisor
+    environment:
+      - LLM_BACKEND=${LLM_BACKEND:-mock}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o}
+      - RESEARCH_AGENT_URL=http://research-agent:8001
+      - WRITING_AGENT_URL=http://writer-crew:8002
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    depends_on:
+      research-agent:
+        condition: service_healthy
+      writer-crew:
+        condition: service_healthy
+    # Default: show help. Override with: docker compose run --rm supervisor "task"
+    command: ["python", "-m", "supervisor.cli", "--help"]
+    profiles:
+      - cli

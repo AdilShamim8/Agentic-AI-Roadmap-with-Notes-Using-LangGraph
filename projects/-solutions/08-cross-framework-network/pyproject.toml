@@ -1,0 +1,91 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cross-framework-network"
+version = "0.1.0"
+description = "Cross-framework agent network demonstrating A2A protocol interoperability between LangGraph, OpenAI Agents SDK, and CrewAI"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Agentic AI Roadmap", email = "noreply@example.com" },
+]
+keywords = ["a2a", "multi-agent", "langgraph", "crewai", "openai-agents", "interoperability"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: FastAPI",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries",
+]
+
+dependencies = [
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "pydantic>=2.5.0",
+    "httpx>=0.25.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+openai = [
+    "openai>=1.10.0",
+]
+langgraph = [
+    "langgraph>=0.2.0",
+    "langchain-core>=0.2.0",
+]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=4.1.0",
+    "httpx>=0.25.0",
+    "ruff>=0.1.0",
+    "mypy>=1.7.0",
+]
+all = [
+    "cross-framework-network[openai,langgraph,dev]",
+]
+
+[project.urls]
+Homepage = "https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects"
+Repository = "https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects"
+
+[project.scripts]
+research-agent = "agents.openai_research.server:main"
+writer-crew = "agents.crewai_writer.server:main"
+supervisor = "supervisor.cli:main"
+run-eval = "eval.runner:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["a2a*", "agents*", "supervisor*", "llm*", "eval*"]
+exclude = ["tests*", "docs*", "examples*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "A", "C4"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = false
+warn_unused_configs = true
+ignore_missing_imports = true

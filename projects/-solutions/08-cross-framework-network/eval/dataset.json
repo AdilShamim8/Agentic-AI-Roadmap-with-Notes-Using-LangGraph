@@ -1,0 +1,207 @@
+{
+  "name": "Cross-Framework Network Evaluation Dataset",
+  "version": "1.0.0",
+  "description": "20 multi-step tasks requiring both research and writing, with hand-labeled expected decomposition.",
+  "tasks": [
+    {
+      "id": 1,
+      "task": "Research the current state of multi-agent AI systems and write a blog post summarizing the key findings",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research current state of multi-agent AI systems"},
+        {"step": 2, "agent": "writing", "description": "Write a blog post summarizing the findings"}
+      ],
+      "category": "technology",
+      "difficulty": "medium"
+    },
+    {
+      "id": 2,
+      "task": "Investigate the A2A protocol specification and draft a technical whitepaper explaining its architecture",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research A2A protocol specification and architecture"},
+        {"step": 2, "agent": "writing", "description": "Draft a technical whitepaper"}
+      ],
+      "category": "technology",
+      "difficulty": "hard"
+    },
+    {
+      "id": 3,
+      "task": "Research the environmental impact of electric vehicles and write an opinion piece about adoption trends",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research environmental impact of EVs"},
+        {"step": 2, "agent": "writing", "description": "Write an opinion piece about adoption trends"}
+      ],
+      "category": "environment",
+      "difficulty": "medium"
+    },
+    {
+      "id": 4,
+      "task": "Study recent advances in quantum computing and compose a newsletter article for a general audience",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research recent advances in quantum computing"},
+        {"step": 2, "agent": "writing", "description": "Compose a newsletter article"}
+      ],
+      "category": "science",
+      "difficulty": "hard"
+    },
+    {
+      "id": 5,
+      "task": "Research the history of the Rust programming language and write a feature article for a developer magazine",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research history of Rust programming language"},
+        {"step": 2, "agent": "writing", "description": "Write a feature article"}
+      ],
+      "category": "technology",
+      "difficulty": "medium"
+    },
+    {
+      "id": 6,
+      "task": "Analyze the economic effects of remote work and draft a policy brief for government officials",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research economic effects of remote work"},
+        {"step": 2, "agent": "writing", "description": "Draft a policy brief"}
+      ],
+      "category": "economics",
+      "difficulty": "hard"
+    },
+    {
+      "id": 7,
+      "task": "Research best practices for API design and write a tutorial guide for junior developers",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research API design best practices"},
+        {"step": 2, "agent": "writing", "description": "Write a tutorial guide"}
+      ],
+      "category": "technology",
+      "difficulty": "easy"
+    },
+    {
+      "id": 8,
+      "task": "Investigate the impact of social media on mental health and write a persuasive essay arguing for regulation",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research social media impact on mental health"},
+        {"step": 2, "agent": "writing", "description": "Write a persuasive essay"}
+      ],
+      "category": "social",
+      "difficulty": "medium"
+    },
+    {
+      "id": 9,
+      "task": "Study the development of mRNA vaccine technology and compose a science communication article",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research mRNA vaccine technology development"},
+        {"step": 2, "agent": "writing", "description": "Compose a science communication article"}
+      ],
+      "category": "science",
+      "difficulty": "hard"
+    },
+    {
+      "id": 10,
+      "task": "Research the gig economy's effect on labor rights and write a report for a labor union",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research gig economy effects on labor rights"},
+        {"step": 2, "agent": "writing", "description": "Write a report for a labor union"}
+      ],
+      "category": "economics",
+      "difficulty": "medium"
+    },
+    {
+      "id": 11,
+      "task": "Analyze the current landscape of open-source AI models and write a comparison guide for enterprises",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research open-source AI model landscape"},
+        {"step": 2, "agent": "writing", "description": "Write a comparison guide"}
+      ],
+      "category": "technology",
+      "difficulty": "medium"
+    },
+    {
+      "id": 12,
+      "task": "Research renewable energy adoption in developing countries and draft a funding proposal for an NGO",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research renewable energy in developing countries"},
+        {"step": 2, "agent": "writing", "description": "Draft a funding proposal"}
+      ],
+      "category": "environment",
+      "difficulty": "hard"
+    },
+    {
+      "id": 13,
+      "task": "Study the evolution of DevOps practices and write an onboarding document for new engineers",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research DevOps practices evolution"},
+        {"step": 2, "agent": "writing", "description": "Write an onboarding document"}
+      ],
+      "category": "technology",
+      "difficulty": "easy"
+    },
+    {
+      "id": 14,
+      "task": "Investigate cybersecurity threats in IoT devices and compose a risk assessment report",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research IoT cybersecurity threats"},
+        {"step": 2, "agent": "writing", "description": "Compose a risk assessment report"}
+      ],
+      "category": "technology",
+      "difficulty": "hard"
+    },
+    {
+      "id": 15,
+      "task": "Research the psychology of habit formation and write a self-help article with actionable tips",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research psychology of habit formation"},
+        {"step": 2, "agent": "writing", "description": "Write a self-help article"}
+      ],
+      "category": "psychology",
+      "difficulty": "easy"
+    },
+    {
+      "id": 16,
+      "task": "Analyze the impact of streaming services on the music industry and write a feature for a music magazine",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research streaming services impact on music industry"},
+        {"step": 2, "agent": "writing", "description": "Write a magazine feature"}
+      ],
+      "category": "culture",
+      "difficulty": "medium"
+    },
+    {
+      "id": 17,
+      "task": "Research advances in CRISPR gene editing and draft an ethics whitepaper",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research CRISPR gene editing advances"},
+        {"step": 2, "agent": "writing", "description": "Draft an ethics whitepaper"}
+      ],
+      "category": "science",
+      "difficulty": "hard"
+    },
+    {
+      "id": 18,
+      "task": "Study the rise of edge computing and write a technical blog post explaining its benefits",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research edge computing rise"},
+        {"step": 2, "agent": "writing", "description": "Write a technical blog post"}
+      ],
+      "category": "technology",
+      "difficulty": "medium"
+    },
+    {
+      "id": 19,
+      "task": "Research the effects of climate change on coastal cities and write a call-to-action article",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research climate change effects on coastal cities"},
+        {"step": 2, "agent": "writing", "description": "Write a call-to-action article"}
+      ],
+      "category": "environment",
+      "difficulty": "medium"
+    },
+    {
+      "id": 20,
+      "task": "Analyze the current state of WebAssembly and compose a developer's guide to getting started",
+      "expected_decomposition": [
+        {"step": 1, "agent": "research", "description": "Research WebAssembly current state"},
+        {"step": 2, "agent": "writing", "description": "Compose a getting-started guide"}
+      ],
+      "category": "technology",
+      "difficulty": "medium"
+    }
+  ]
+}
