@@ -1,0 +1,154 @@
+name: a2a-platform
+
+# =============================================================================
+# Agent-as-a-Service Platform — full stack orchestration
+# =============================================================================
+# Boots: postgres, backend (FastAPI), frontend (Next.js),
+#        a2a-gateway, one sample agent-runtime, prometheus, grafana.
+# Usage:  docker compose up --build
+# Tear down (keep data):   docker compose down
+# Tear down (wipe data):   docker compose down -v
+# =============================================================================
+
+services:
+  # ---------------------------------------------------------------------------
+  # Postgres — primary database for users, agents, invocations, billing
+  # ---------------------------------------------------------------------------
+  postgres:
+    image: postgres:16-alpine
+    container_name: a2a-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-a2a}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_DB: ${POSTGRES_DB:-a2a_platform}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-a2a}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # ---------------------------------------------------------------------------
+  # Backend — FastAPI: auth, agent registry, billing, A2A proxy
+  # ---------------------------------------------------------------------------
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: a2a-backend
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-a2a}:${POSTGRES_PASSWORD:-changeme}@postgres:5432/${POSTGRES_DB:-a2a_platform}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - /var/run/docker.sock:/var/run/docker.sock  # so backend can spawn agent containers
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: >
+      sh -c "alembic upgrade head &&
+             uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+
+  # ---------------------------------------------------------------------------
+  # A2A Gateway — serves aggregate Agent Card, routes A2A calls to agents
+  # ---------------------------------------------------------------------------
+  a2a-gateway:
+    build:
+      context: ./a2a-gateway
+      dockerfile: Dockerfile
+    container_name: a2a-gateway
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      AGENT_REGISTRY_URL: http://backend:8000/internal/agents
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./a2a-gateway:/app
+    depends_on:
+      - backend
+    command: uvicorn server:app --host 0.0.0.0 --port 8080 --reload
+
+  # ---------------------------------------------------------------------------
+  # Sample agent runtime — one A2A-compliant agent for demo purposes
+  # ---------------------------------------------------------------------------
+  agent-runtime:
+    build:
+      context: ./agent-runtime
+      dockerfile: Dockerfile
+    container_name: a2a-agent-runtime
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./agent-runtime:/app
+    command: uvicorn server:app --host 0.0.0.0 --port 8081 --reload
+
+  # ---------------------------------------------------------------------------
+  # Frontend — Next.js web UI
+  # ---------------------------------------------------------------------------
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: a2a-frontend
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+      NEXT_PUBLIC_A2A_GATEWAY_URL: http://localhost:8080
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+    command: sh -c "npm install && npm run dev"
+
+  # ---------------------------------------------------------------------------
+  # Prometheus — scrapes metrics from backend + a2a-gateway
+  # ---------------------------------------------------------------------------
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: a2a-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./infra/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+
+  # ---------------------------------------------------------------------------
+  # Grafana — dashboards on top of Prometheus
+  # ---------------------------------------------------------------------------
+  grafana:
+    image: grafana/grafana:latest
+    container_name: a2a-grafana
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-admin}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    ports:
+      - "3001:3001"   # NOTE: mapped to 3001 to avoid clash with frontend
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./infra/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./infra/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    depends_on:
+      - prometheus
+
+volumes:
+  postgres_data:
+  prometheus_data:
+  grafana_data:

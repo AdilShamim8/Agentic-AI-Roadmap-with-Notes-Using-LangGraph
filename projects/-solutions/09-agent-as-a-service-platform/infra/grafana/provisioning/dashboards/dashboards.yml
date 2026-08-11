@@ -1,0 +1,16 @@
+# =============================================================================
+# Grafana dashboard provider — auto-load dashboards from /var/lib/grafana/dashboards
+# =============================================================================
+
+apiVersion: 1
+
+providers:
+  - name: "A2A Platform Dashboards"
+    orgId: 1
+    folder: "A2A Platform"
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 30
+    options:
+      path: /var/lib/grafana/dashboards
+      foldersFromFilesStructure: true

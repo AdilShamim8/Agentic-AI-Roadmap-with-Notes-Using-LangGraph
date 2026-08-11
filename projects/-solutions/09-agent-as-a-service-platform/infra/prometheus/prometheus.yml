@@ -1,0 +1,44 @@
+# =============================================================================
+# Prometheus scrape config for the Agent-as-a-Service platform
+# =============================================================================
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    cluster: a2a-platform
+
+# Alerting rules can be added here later
+# rule_files:
+#   - "alerts.yml"
+
+scrape_configs:
+  # --- FastAPI backend ---
+  - job_name: "backend"
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["backend:8000"]
+        labels:
+          service: backend
+
+  # --- A2A gateway ---
+  - job_name: "a2a-gateway"
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["a2a-gateway:8080"]
+        labels:
+          service: a2a-gateway
+
+  # --- Sample agent runtime ---
+  - job_name: "agent-runtime"
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["agent-runtime:8081"]
+        labels:
+          service: agent-runtime
+          agent_id: sample-researcher
+
+  # --- Prometheus self-monitoring ---
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
