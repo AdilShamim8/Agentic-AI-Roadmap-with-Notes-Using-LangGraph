@@ -58,4 +58,4 @@ This project exercises A2A at scale, platform engineering, and the marketplace c
 
 ## Solution
 
-Reference solution: [projects/-solutions/09-agent-as-a-service-platform/](-solutions/09-agent-as-a-service-platform/) (coming soon). Build your own first.
+Reference solution: [projects/-solutions/09-agent-as-a-service-platform/](https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects/tree/main/projects/-solutions/09-agent-as-a-service-platform). Build your own first.
