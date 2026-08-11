@@ -68,4 +68,4 @@ graph LR
 
 ## Solution
 
-Reference solution: [-solutions/01-research-agent](https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects/tree/main/projects/-solutions/01-research-agent) (coming soon). Build your own first.
+Reference solution: [-solutions/01-research-agent](https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects/tree/main/projects/-solutions/01-research-agent). Build your own first.
