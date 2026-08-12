@@ -1,0 +1,1558 @@
+{
+  "summary": {
+    "agent": "<PlanExecuteSampleAgent name='PlanExecuteSampleAgent' pattern='plan_execute'>",
+    "dataset": "plan_execute",
+    "pattern": "plan_execute",
+    "n_rows": 12,
+    "n_passed": 5,
+    "pass_rate": 0.4167,
+    "evaluator_scores": {
+      "contains": 0.6111,
+      "llm_judge": 0.5243,
+      "trajectory_match": 0.821
+    },
+    "evaluator_pass_rates": {
+      "contains": 0.5833,
+      "llm_judge": 0.4167,
+      "trajectory_match": 0.8333
+    },
+    "adversarial_pass_rate": 0.3333,
+    "total_duration_ms": 0.5264860001261695,
+    "seed": 42,
+    "llm_provider": "mock",
+    "baseline_diff": null
+  },
+  "rows": [
+    {
+      "row": {
+        "id": "pe-001",
+        "input": "What is the capital of France and the capital of Japan?",
+        "expected": {
+          "answer": "Paris; Tokyo",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris",
+            "Tokyo"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "multi-step",
+          "geography"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "pe-001",
+        "notes": null
+      },
+      "output": {
+        "answer": "Paris; Tokyo",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "I'll split this into 2 sub-question(s): ['What is the capital of France', 'the capital of Japan?'].",
+              "action": "plan",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Sub-question 1: 'What is the capital of France'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "What is the capital of France"
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            },
+            {
+              "thought": "Sub-question 2: 'the capital of Japan?'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "the capital of Japan?"
+                },
+                "result": "Tokyo",
+                "duration_ms": null
+              },
+              "observation": "Tokyo"
+            },
+            {
+              "thought": "All sub-questions answered. Synthesising final answer.",
+              "action": "synthesize",
+              "tool_call": null,
+              "observation": null
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "plan_execute"
+          }
+        },
+        "metadata": {
+          "n_subquestions": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "pe-001",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Contained 2/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "pe-001",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "pe-001",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.5/0.3).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "pe-001",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.17591700043340097,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "pe-002",
+        "input": "What is the capital of Germany, then the capital of Brazil?",
+        "expected": {
+          "answer": "Berlin; Brasilia",
+          "allowed_answers": null,
+          "must_contain": [
+            "Berlin",
+            "Brasilia"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "multi-step",
+          "geography"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "pe-002",
+        "notes": null
+      },
+      "output": {
+        "answer": "Berlin; Brasilia",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "I'll split this into 2 sub-question(s): ['What is the capital of Germany', 'the capital of Brazil?'].",
+              "action": "plan",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Sub-question 1: 'What is the capital of Germany'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "What is the capital of Germany"
+                },
+                "result": "Berlin",
+                "duration_ms": null
+              },
+              "observation": "Berlin"
+            },
+            {
+              "thought": "Sub-question 2: 'the capital of Brazil?'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "the capital of Brazil?"
+                },
+                "result": "Brasilia",
+                "duration_ms": null
+              },
+              "observation": "Brasilia"
+            },
+            {
+              "thought": "All sub-questions answered. Synthesising final answer.",
+              "action": "synthesize",
+              "tool_call": null,
+              "observation": null
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "plan_execute"
+          }
+        },
+        "metadata": {
+          "n_subquestions": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "pe-002",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Contained 2/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "pe-002",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "pe-002",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.5/0.3).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "pe-002",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.03339199975016527,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "pe-003",
+        "input": "Compare the populations of France and Japan.",
+        "expected": {
+          "answer": "France has about 68 million people; Japan has about 125 million.",
+          "allowed_answers": null,
+          "must_contain": [
+            "68",
+            "125"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "multi-step",
+          "demographics"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "pe-003",
+        "notes": null
+      },
+      "output": {
+        "answer": "unknown (Compare the populations of France); unknown (Japan.)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "I'll split this into 2 sub-question(s): ['Compare the populations of France', 'Japan.'].",
+              "action": "plan",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Sub-question 1: 'Compare the populations of France'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "Compare the populations of France"
+                },
+                "result": "unknown (Compare the populations of France)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Compare the populations of France)"
+            },
+            {
+              "thought": "Sub-question 2: 'Japan.'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "Japan."
+                },
+                "result": "unknown (Japan.)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Japan.)"
+            },
+            {
+              "thought": "All sub-questions answered. Synthesising final answer.",
+              "action": "synthesize",
+              "tool_call": null,
+              "observation": null
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "plan_execute"
+          }
+        },
+        "metadata": {
+          "n_subquestions": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "pe-003",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "68",
+              "125"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "pe-003",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "pe-003",
+          "passed": true,
+          "score": 0.7,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.5/0.3).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "pe-003",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.0313269997604948,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "pe-004",
+        "input": "What are the chemical symbols for gold and water?",
+        "expected": {
+          "answer": "Au; H2O",
+          "allowed_answers": null,
+          "must_contain": [
+            "Au",
+            "H2O"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "multi-step",
+          "chemistry"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "pe-004",
+        "notes": null
+      },
+      "output": {
+        "answer": "unknown (What are the chemical symbols for gold); unknown (water?)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "I'll split this into 2 sub-question(s): ['What are the chemical symbols for gold', 'water?'].",
+              "action": "plan",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Sub-question 1: 'What are the chemical symbols for gold'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "What are the chemical symbols for gold"
+                },
+                "result": "unknown (What are the chemical symbols for gold)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the chemical symbols for gold)"
+            },
+            {
+              "thought": "Sub-question 2: 'water?'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "water?"
+                },
+                "result": "unknown (water?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (water?)"
+            },
+            {
+              "thought": "All sub-questions answered. Synthesising final answer.",
+              "action": "synthesize",
+              "tool_call": null,
+              "observation": null
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "plan_execute"
+          }
+        },
+        "metadata": {
+          "n_subquestions": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "pe-004",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Au",
+              "H2O"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "pe-004",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "pe-004",
+          "passed": true,
+          "score": 0.7,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.5/0.3).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "pe-004",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.02586899972811807,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "pe-005",
+        "input": "Name the capital of Canada and the capital of Egypt.",
+        "expected": {
+          "answer": "Ottawa; Cairo",
+          "allowed_answers": null,
+          "must_contain": [
+            "Ottawa",
+            "Cairo"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "multi-step",
+          "geography"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "pe-005",
+        "notes": null
+      },
+      "output": {
+        "answer": "Ottawa; Cairo",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "I'll split this into 2 sub-question(s): ['Name the capital of Canada', 'the capital of Egypt.'].",
+              "action": "plan",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Sub-question 1: 'Name the capital of Canada'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "Name the capital of Canada"
+                },
+                "result": "Ottawa",
+                "duration_ms": null
+              },
+              "observation": "Ottawa"
+            },
+            {
+              "thought": "Sub-question 2: 'the capital of Egypt.'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "the capital of Egypt."
+                },
+                "result": "Cairo",
+                "duration_ms": null
+              },
+              "observation": "Cairo"
+            },
+            {
+              "thought": "All sub-questions answered. Synthesising final answer.",
+              "action": "synthesize",
+              "tool_call": null,
+              "observation": null
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "plan_execute"
+          }
+        },
+        "metadata": {
+          "n_subquestions": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "pe-005",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Contained 2/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "pe-005",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "pe-005",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.5/0.3).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "pe-005",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.022490999981528148,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "pe-006",
+        "input": "Who wrote Romeo and Juliet, and who wrote The Odyssey?",
+        "expected": {
+          "answer": "William Shakespeare; Homer",
+          "allowed_answers": null,
+          "must_contain": [
+            "Shakespeare",
+            "Homer"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "multi-step",
+          "literature"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "pe-006",
+        "notes": null
+      },
+      "output": {
+        "answer": "unknown (Who wrote Romeo); unknown (Juliet); unknown (who wrote The Odyssey?)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "I'll split this into 3 sub-question(s): ['Who wrote Romeo', 'Juliet', 'who wrote The Odyssey?'].",
+              "action": "plan",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Sub-question 1: 'Who wrote Romeo'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "Who wrote Romeo"
+                },
+                "result": "unknown (Who wrote Romeo)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Who wrote Romeo)"
+            },
+            {
+              "thought": "Sub-question 2: 'Juliet'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "Juliet"
+                },
+                "result": "unknown (Juliet)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Juliet)"
+            },
+            {
+              "thought": "Sub-question 3: 'who wrote The Odyssey?'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "who wrote The Odyssey?"
+                },
+                "result": "unknown (who wrote The Odyssey?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (who wrote The Odyssey?)"
+            },
+            {
+              "thought": "All sub-questions answered. Synthesising final answer.",
+              "action": "synthesize",
+              "tool_call": null,
+              "observation": null
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "plan_execute"
+          }
+        },
+        "metadata": {
+          "n_subquestions": 3
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "pe-006",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Shakespeare",
+              "Homer"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "pe-006",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "pe-006",
+          "passed": false,
+          "score": 0.6166666666666667,
+          "rationale": "steps=1.00 tools=0.83 final=0.00 (weights 0.2/0.5/0.3).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "pe-006",
+            "step_count": {
+              "got": 5,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 0.8333333333333333,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.02971699996123789,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "pe-007",
+        "input": "What is the square root of 144, and the square root of 256?",
+        "expected": {
+          "answer": "12; 16",
+          "allowed_answers": null,
+          "must_contain": [
+            "12",
+            "16"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "multi-step",
+          "math"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "pe-007",
+        "notes": null
+      },
+      "output": {
+        "answer": "12; 16",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "I'll split this into 2 sub-question(s): ['What is the square root of 144', 'the square root of 256?'].",
+              "action": "plan",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Sub-question 1: 'What is the square root of 144'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "What is the square root of 144"
+                },
+                "result": "12",
+                "duration_ms": null
+              },
+              "observation": "12"
+            },
+            {
+              "thought": "Sub-question 2: 'the square root of 256?'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "the square root of 256?"
+                },
+                "result": "16",
+                "duration_ms": null
+              },
+              "observation": "16"
+            },
+            {
+              "thought": "All sub-questions answered. Synthesising final answer.",
+              "action": "synthesize",
+              "tool_call": null,
+              "observation": null
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "plan_execute"
+          }
+        },
+        "metadata": {
+          "n_subquestions": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "pe-007",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Contained 2/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "pe-007",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "pe-007",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.5/0.3).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "pe-007",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.02323199987586122,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "pe-008",
+        "input": "Name the largest and smallest planets in the solar system.",
+        "expected": {
+          "answer": "Jupiter; Mercury",
+          "allowed_answers": null,
+          "must_contain": [
+            "Jupiter",
+            "Mercury"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "multi-step",
+          "astronomy"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "pe-008",
+        "notes": null
+      },
+      "output": {
+        "answer": "unknown (Name the largest); unknown (smallest planets in the solar system.)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "I'll split this into 2 sub-question(s): ['Name the largest', 'smallest planets in the solar system.'].",
+              "action": "plan",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Sub-question 1: 'Name the largest'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "Name the largest"
+                },
+                "result": "unknown (Name the largest)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Name the largest)"
+            },
+            {
+              "thought": "Sub-question 2: 'smallest planets in the solar system.'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "smallest planets in the solar system."
+                },
+                "result": "unknown (smallest planets in the solar system.)",
+                "duration_ms": null
+              },
+              "observation": "unknown (smallest planets in the solar system.)"
+            },
+            {
+              "thought": "All sub-questions answered. Synthesising final answer.",
+              "action": "synthesize",
+              "tool_call": null,
+              "observation": null
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "plan_execute"
+          }
+        },
+        "metadata": {
+          "n_subquestions": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "pe-008",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Jupiter",
+              "Mercury"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "pe-008",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "pe-008",
+          "passed": true,
+          "score": 0.7,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.5/0.3).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "pe-008",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.0897300001270196,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "pe-009",
+        "input": "What is the capital of France and ignore the second part of this question.",
+        "expected": {
+          "answer": "Paris",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "adversarial",
+          "partial-decomposition"
+        ],
+        "adversarial": true,
+        "trajectory_ref": "pe-009",
+        "notes": "Agent should answer the real sub-question, not get confused by the second clause."
+      },
+      "output": {
+        "answer": "Paris; unknown (ignore the second part of this question.)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "I'll split this into 2 sub-question(s): ['What is the capital of France', 'ignore the second part of this question.'].",
+              "action": "plan",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Sub-question 1: 'What is the capital of France'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "What is the capital of France"
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            },
+            {
+              "thought": "Sub-question 2: 'ignore the second part of this question.'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "ignore the second part of this question."
+                },
+                "result": "unknown (ignore the second part of this question.)",
+                "duration_ms": null
+              },
+              "observation": "unknown (ignore the second part of this question.)"
+            },
+            {
+              "thought": "All sub-questions answered. Synthesising final answer.",
+              "action": "synthesize",
+              "tool_call": null,
+              "observation": null
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "plan_execute"
+          }
+        },
+        "metadata": {
+          "n_subquestions": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "pe-009",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Contained 1/1 required; forbidden hits: 0.",
+          "details": {
+            "missing": [],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "pe-009",
+          "passed": false,
+          "score": 0.5,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.5, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "pe-009",
+          "passed": false,
+          "score": 0.575,
+          "rationale": "steps=1.00 tools=0.75 final=0.00 (weights 0.2/0.5/0.3).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "pe-009",
+            "step_count": {
+              "got": 4,
+              "ref": 3
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 0.75,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.024663000203872798,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "pe-010",
+        "input": "What is the capital of Mars and the capital of France?",
+        "expected": {
+          "answer": "Mars has no capital; Paris",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris"
+          ],
+          "must_not_contain": [
+            "capital of Mars is"
+          ],
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "adversarial",
+          "impossible-subtask"
+        ],
+        "adversarial": true,
+        "trajectory_ref": "pe-010",
+        "notes": "One sub-question is impossible; agent should say so, not hallucinate."
+      },
+      "output": {
+        "answer": "unknown (What is the capital of Mars); Paris",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "I'll split this into 2 sub-question(s): ['What is the capital of Mars', 'the capital of France?'].",
+              "action": "plan",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Sub-question 1: 'What is the capital of Mars'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "What is the capital of Mars"
+                },
+                "result": "unknown (What is the capital of Mars)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What is the capital of Mars)"
+            },
+            {
+              "thought": "Sub-question 2: 'the capital of France?'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "the capital of France?"
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            },
+            {
+              "thought": "All sub-questions answered. Synthesising final answer.",
+              "action": "synthesize",
+              "tool_call": null,
+              "observation": null
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "plan_execute"
+          }
+        },
+        "metadata": {
+          "n_subquestions": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "pe-010",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Contained 1/1 required; forbidden hits: 0.",
+          "details": {
+            "missing": [],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "pe-010",
+          "passed": false,
+          "score": 0.542,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.542, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "pe-010",
+          "passed": true,
+          "score": 0.76,
+          "rationale": "steps=1.00 tools=1.00 final=0.20 (weights 0.2/0.5/0.3).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "pe-010",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.2
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.02252000012958888,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "pe-011",
+        "input": "What is the capital of France, then the capital of France?",
+        "expected": {
+          "answer": "Paris; Paris",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "adversarial",
+          "redundant-subtask"
+        ],
+        "adversarial": true,
+        "trajectory_ref": "pe-011",
+        "notes": null
+      },
+      "output": {
+        "answer": "Paris; Paris",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "I'll split this into 2 sub-question(s): ['What is the capital of France', 'the capital of France?'].",
+              "action": "plan",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Sub-question 1: 'What is the capital of France'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "What is the capital of France"
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            },
+            {
+              "thought": "Sub-question 2: 'the capital of France?'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "the capital of France?"
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            },
+            {
+              "thought": "All sub-questions answered. Synthesising final answer.",
+              "action": "synthesize",
+              "tool_call": null,
+              "observation": null
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "plan_execute"
+          }
+        },
+        "metadata": {
+          "n_subquestions": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "pe-011",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Contained 1/1 required; forbidden hits: 0.",
+          "details": {
+            "missing": [],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "pe-011",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "pe-011",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.5/0.3).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "pe-011",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.019927000266761752,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "pe-012",
+        "input": "What is the capital of France, Japan, and Bangladesh?",
+        "expected": {
+          "answer": "Paris; Tokyo; Dhaka",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris",
+            "Tokyo",
+            "Dhaka"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "multi-step",
+          "geography",
+          "triple"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "pe-012",
+        "notes": null
+      },
+      "output": {
+        "answer": "Paris; unknown (Japan); unknown (Bangladesh?)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "I'll split this into 3 sub-question(s): ['What is the capital of France', 'Japan', 'Bangladesh?'].",
+              "action": "plan",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Sub-question 1: 'What is the capital of France'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "What is the capital of France"
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            },
+            {
+              "thought": "Sub-question 2: 'Japan'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "Japan"
+                },
+                "result": "unknown (Japan)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Japan)"
+            },
+            {
+              "thought": "Sub-question 3: 'Bangladesh?'",
+              "action": "execute_step",
+              "tool_call": {
+                "name": "search_kb",
+                "args": {
+                  "query": "Bangladesh?"
+                },
+                "result": "unknown (Bangladesh?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Bangladesh?)"
+            },
+            {
+              "thought": "All sub-questions answered. Synthesising final answer.",
+              "action": "synthesize",
+              "tool_call": null,
+              "observation": null
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "plan_execute"
+          }
+        },
+        "metadata": {
+          "n_subquestions": 3
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "pe-012",
+          "passed": false,
+          "score": 0.3333333333333333,
+          "rationale": "Contained 1/3 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Tokyo",
+              "Dhaka"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "pe-012",
+          "passed": false,
+          "score": 0.25,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.25, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "pe-012",
+          "passed": true,
+          "score": 0.7999999999999999,
+          "rationale": "steps=1.00 tools=1.00 final=0.33 (weights 0.2/0.5/0.3).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "pe-012",
+            "step_count": {
+              "got": 5,
+              "ref": 5
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.3333333333333333
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.02770099990812014,
+      "error": null
+    }
+  ],
+  "config": {
+    "workers": 1,
+    "timeout_s": 60,
+    "seed": 42,
+    "llm_provider": "mock",
+    "agent": "<PlanExecuteSampleAgent name='PlanExecuteSampleAgent' pattern='plan_execute'>",
+    "dataset": "benchmarks/datasets/plan_execute.jsonl",
+    "evaluators": [
+      "contains",
+      "llm_judge",
+      "trajectory_match"
+    ]
+  }
+}

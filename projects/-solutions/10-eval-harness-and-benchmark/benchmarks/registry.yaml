@@ -1,0 +1,77 @@
+# Benchmark registry.
+#
+# Maps each agent pattern to:
+#   - the datasets appropriate for it,
+#   - the evaluators that should run on each dataset,
+#   - an optional baseline file for delta reporting.
+#
+# Adding a new pattern is a one-block edit here.
+
+patterns:
+  - pattern: react
+    description: "ReAct — reason + act loop, single tool call."
+    datasets: [react]
+    evaluators:
+      - name: exact_match
+        kind: rule_based
+      - name: contains
+        kind: rule_based
+      - name: llm_judge
+        kind: llm_judge
+        params:
+          pass_threshold: 0.7
+      - name: trajectory_match
+        kind: trajectory
+    baseline: baselines/baseline_v1.json
+
+  - pattern: plan_execute
+    description: "Plan-and-execute — decompose, run sub-tasks, synthesise."
+    datasets: [plan_execute]
+    evaluators:
+      - name: contains
+        kind: rule_based
+      - name: llm_judge
+        kind: llm_judge
+      - name: trajectory_match
+        kind: trajectory
+        params:
+          weight_tools: 0.5
+          weight_final: 0.3
+          weight_steps: 0.2
+    baseline: baselines/baseline_v1.json
+
+  - pattern: supervisor
+    description: "Supervisor — routes to specialist sub-agents."
+    datasets: [supervisor]
+    evaluators:
+      - name: exact_match
+        kind: rule_based
+      - name: llm_judge
+        kind: llm_judge
+      - name: trajectory_match
+        kind: trajectory
+    baseline: baselines/baseline_v1.json
+
+  - pattern: swarm
+    description: "Swarm — many specialists answer in parallel, synthesiser picks."
+    datasets: [swarm]
+    evaluators:
+      - name: contains
+        kind: rule_based
+      - name: llm_judge
+        kind: llm_judge
+      - name: trajectory_match
+        kind: trajectory
+    baseline: baselines/baseline_v1.json
+
+  - pattern: map_reduce
+    description: "Map-reduce — split input, process chunks, combine."
+    datasets: [map_reduce]
+    evaluators:
+      - name: contains
+        kind: rule_based
+      - name: llm_judge
+        kind: llm_judge
+      - name: trajectory_match
+        kind: trajectory
+    baseline: baselines/baseline_v1.json

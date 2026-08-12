@@ -1,0 +1,1386 @@
+{
+  "summary": {
+    "agent": "<SupervisorSampleAgent name='SupervisorSampleAgent' pattern='supervisor'>",
+    "dataset": "supervisor",
+    "pattern": "supervisor",
+    "n_rows": 12,
+    "n_passed": 11,
+    "pass_rate": 0.9167,
+    "evaluator_scores": {
+      "exact_match": 0.9167,
+      "llm_judge": 0.9167,
+      "trajectory_match": 0.9083
+    },
+    "evaluator_pass_rates": {
+      "exact_match": 0.9167,
+      "llm_judge": 0.9167,
+      "trajectory_match": 0.9167
+    },
+    "adversarial_pass_rate": 0.5,
+    "total_duration_ms": 0.34668799980863696,
+    "seed": 42,
+    "llm_provider": "mock",
+    "baseline_diff": null
+  },
+  "rows": [
+    {
+      "row": {
+        "id": "sup-001",
+        "input": "What is the capital of France?",
+        "expected": {
+          "answer": "Paris",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "routing",
+          "geography"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "sup-001",
+        "notes": null
+      },
+      "output": {
+        "answer": "Paris",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Classified input; routing to geography_specialist.",
+              "action": "route",
+              "tool_call": {
+                "name": "route",
+                "args": {
+                  "to": "geography_specialist"
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": null
+            },
+            {
+              "thought": "Specialist geography_specialist returned: 'Paris'.",
+              "action": "delegate",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the capital of France?"
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "supervisor"
+          }
+        },
+        "metadata": {
+          "specialist": "geography_specialist"
+        }
+      },
+      "results": [
+        {
+          "evaluator": "exact_match",
+          "row_id": "sup-001",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Exact match against 1 candidate(s).",
+          "details": {
+            "got": "paris",
+            "candidates": [
+              "paris"
+            ]
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "sup-001",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "sup-001",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "sup-001",
+            "step_count": {
+              "got": 2,
+              "ref": 2
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.04505000015342375,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "sup-002",
+        "input": "What is the square root of 144?",
+        "expected": {
+          "answer": "12",
+          "allowed_answers": null,
+          "must_contain": null,
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": 12.0,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "routing",
+          "math"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "sup-002",
+        "notes": null
+      },
+      "output": {
+        "answer": "12",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Classified input; routing to math_specialist.",
+              "action": "route",
+              "tool_call": {
+                "name": "route",
+                "args": {
+                  "to": "math_specialist"
+                },
+                "result": "12",
+                "duration_ms": null
+              },
+              "observation": null
+            },
+            {
+              "thought": "Specialist math_specialist returned: '12'.",
+              "action": "delegate",
+              "tool_call": {
+                "name": "math_specialist",
+                "args": {
+                  "input": "What is the square root of 144?"
+                },
+                "result": "12",
+                "duration_ms": null
+              },
+              "observation": "12"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "supervisor"
+          }
+        },
+        "metadata": {
+          "specialist": "math_specialist"
+        }
+      },
+      "results": [
+        {
+          "evaluator": "exact_match",
+          "row_id": "sup-002",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Exact match against 1 candidate(s).",
+          "details": {
+            "got": "12",
+            "candidates": [
+              "12"
+            ]
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "sup-002",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "sup-002",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "sup-002",
+            "step_count": {
+              "got": 2,
+              "ref": 2
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.1170229998024297,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "sup-003",
+        "input": "What is the population of Japan?",
+        "expected": {
+          "answer": "about 125 million",
+          "allowed_answers": null,
+          "must_contain": [
+            "125"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "routing",
+          "demographics"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "sup-003",
+        "notes": null
+      },
+      "output": {
+        "answer": "about 125 million",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Classified input; routing to geography_specialist.",
+              "action": "route",
+              "tool_call": {
+                "name": "route",
+                "args": {
+                  "to": "geography_specialist"
+                },
+                "result": "about 125 million",
+                "duration_ms": null
+              },
+              "observation": null
+            },
+            {
+              "thought": "Specialist geography_specialist returned: 'about 125 million'.",
+              "action": "delegate",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the population of Japan?"
+                },
+                "result": "about 125 million",
+                "duration_ms": null
+              },
+              "observation": "about 125 million"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "supervisor"
+          }
+        },
+        "metadata": {
+          "specialist": "geography_specialist"
+        }
+      },
+      "results": [
+        {
+          "evaluator": "exact_match",
+          "row_id": "sup-003",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Exact match against 1 candidate(s).",
+          "details": {
+            "got": "about 125 million",
+            "candidates": [
+              "about 125 million"
+            ]
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "sup-003",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "sup-003",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "sup-003",
+            "step_count": {
+              "got": 2,
+              "ref": 2
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.01901599989651004,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "sup-004",
+        "input": "What is the chemical symbol for water?",
+        "expected": {
+          "answer": "H2O",
+          "allowed_answers": null,
+          "must_contain": [
+            "H2O"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "routing",
+          "chemistry"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "sup-004",
+        "notes": null
+      },
+      "output": {
+        "answer": "H2O",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Classified input; routing to general_specialist.",
+              "action": "route",
+              "tool_call": {
+                "name": "route",
+                "args": {
+                  "to": "general_specialist"
+                },
+                "result": "H2O",
+                "duration_ms": null
+              },
+              "observation": null
+            },
+            {
+              "thought": "Specialist general_specialist returned: 'H2O'.",
+              "action": "delegate",
+              "tool_call": {
+                "name": "general_specialist",
+                "args": {
+                  "input": "What is the chemical symbol for water?"
+                },
+                "result": "H2O",
+                "duration_ms": null
+              },
+              "observation": "H2O"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "supervisor"
+          }
+        },
+        "metadata": {
+          "specialist": "general_specialist"
+        }
+      },
+      "results": [
+        {
+          "evaluator": "exact_match",
+          "row_id": "sup-004",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Exact match against 1 candidate(s).",
+          "details": {
+            "got": "h2o",
+            "candidates": [
+              "h2o"
+            ]
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "sup-004",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "sup-004",
+          "passed": true,
+          "score": 0.7666666666666667,
+          "rationale": "steps=1.00 tools=0.42 final=1.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "sup-004",
+            "step_count": {
+              "got": 2,
+              "ref": 2
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 0.41666666666666663,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.016866999885678524,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "sup-005",
+        "input": "What is the currency of Japan?",
+        "expected": {
+          "answer": "Japanese Yen",
+          "allowed_answers": null,
+          "must_contain": [
+            "Yen"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "routing",
+          "finance"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "sup-005",
+        "notes": null
+      },
+      "output": {
+        "answer": "Japanese Yen",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Classified input; routing to geography_specialist.",
+              "action": "route",
+              "tool_call": {
+                "name": "route",
+                "args": {
+                  "to": "geography_specialist"
+                },
+                "result": "Japanese Yen",
+                "duration_ms": null
+              },
+              "observation": null
+            },
+            {
+              "thought": "Specialist geography_specialist returned: 'Japanese Yen'.",
+              "action": "delegate",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the currency of Japan?"
+                },
+                "result": "Japanese Yen",
+                "duration_ms": null
+              },
+              "observation": "Japanese Yen"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "supervisor"
+          }
+        },
+        "metadata": {
+          "specialist": "geography_specialist"
+        }
+      },
+      "results": [
+        {
+          "evaluator": "exact_match",
+          "row_id": "sup-005",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Exact match against 1 candidate(s).",
+          "details": {
+            "got": "japanese yen",
+            "candidates": [
+              "japanese yen"
+            ]
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "sup-005",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "sup-005",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "sup-005",
+            "step_count": {
+              "got": 2,
+              "ref": 2
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.01971200026673614,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "sup-006",
+        "input": "What is the primary language of Brazil?",
+        "expected": {
+          "answer": "Portuguese",
+          "allowed_answers": null,
+          "must_contain": [
+            "Portuguese"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "routing",
+          "linguistics"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "sup-006",
+        "notes": null
+      },
+      "output": {
+        "answer": "Portuguese",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Classified input; routing to geography_specialist.",
+              "action": "route",
+              "tool_call": {
+                "name": "route",
+                "args": {
+                  "to": "geography_specialist"
+                },
+                "result": "Portuguese",
+                "duration_ms": null
+              },
+              "observation": null
+            },
+            {
+              "thought": "Specialist geography_specialist returned: 'Portuguese'.",
+              "action": "delegate",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the primary language of Brazil?"
+                },
+                "result": "Portuguese",
+                "duration_ms": null
+              },
+              "observation": "Portuguese"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "supervisor"
+          }
+        },
+        "metadata": {
+          "specialist": "geography_specialist"
+        }
+      },
+      "results": [
+        {
+          "evaluator": "exact_match",
+          "row_id": "sup-006",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Exact match against 1 candidate(s).",
+          "details": {
+            "got": "portuguese",
+            "candidates": [
+              "portuguese"
+            ]
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "sup-006",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "sup-006",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "sup-006",
+            "step_count": {
+              "got": 2,
+              "ref": 2
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.016869999853952322,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "sup-007",
+        "input": "What is the capital of Australia?",
+        "expected": {
+          "answer": "Canberra",
+          "allowed_answers": null,
+          "must_contain": [
+            "Canberra"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "routing",
+          "geography",
+          "tricky"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "sup-007",
+        "notes": "Commonly misanswered as 'Sydney'."
+      },
+      "output": {
+        "answer": "Canberra",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Classified input; routing to geography_specialist.",
+              "action": "route",
+              "tool_call": {
+                "name": "route",
+                "args": {
+                  "to": "geography_specialist"
+                },
+                "result": "Canberra",
+                "duration_ms": null
+              },
+              "observation": null
+            },
+            {
+              "thought": "Specialist geography_specialist returned: 'Canberra'.",
+              "action": "delegate",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the capital of Australia?"
+                },
+                "result": "Canberra",
+                "duration_ms": null
+              },
+              "observation": "Canberra"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "supervisor"
+          }
+        },
+        "metadata": {
+          "specialist": "geography_specialist"
+        }
+      },
+      "results": [
+        {
+          "evaluator": "exact_match",
+          "row_id": "sup-007",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Exact match against 1 candidate(s).",
+          "details": {
+            "got": "canberra",
+            "candidates": [
+              "canberra"
+            ]
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "sup-007",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "sup-007",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "sup-007",
+            "step_count": {
+              "got": 2,
+              "ref": 2
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.016189000234589912,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "sup-008",
+        "input": "What is the currency of the European Union?",
+        "expected": {
+          "answer": "Euro",
+          "allowed_answers": null,
+          "must_contain": [
+            "Euro"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "routing",
+          "finance"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "sup-008",
+        "notes": null
+      },
+      "output": {
+        "answer": "Euro",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Classified input; routing to geography_specialist.",
+              "action": "route",
+              "tool_call": {
+                "name": "route",
+                "args": {
+                  "to": "geography_specialist"
+                },
+                "result": "Euro",
+                "duration_ms": null
+              },
+              "observation": null
+            },
+            {
+              "thought": "Specialist geography_specialist returned: 'Euro'.",
+              "action": "delegate",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the currency of the European Union?"
+                },
+                "result": "Euro",
+                "duration_ms": null
+              },
+              "observation": "Euro"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "supervisor"
+          }
+        },
+        "metadata": {
+          "specialist": "geography_specialist"
+        }
+      },
+      "results": [
+        {
+          "evaluator": "exact_match",
+          "row_id": "sup-008",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Exact match against 1 candidate(s).",
+          "details": {
+            "got": "euro",
+            "candidates": [
+              "euro"
+            ]
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "sup-008",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "sup-008",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "sup-008",
+            "step_count": {
+              "got": 2,
+              "ref": 2
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.01808299975891714,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "sup-009",
+        "input": "What is the capital of France? Justify your answer with calculus.",
+        "expected": {
+          "answer": "Paris",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris"
+          ],
+          "must_not_contain": [
+            "derivative",
+            "integral"
+          ],
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "adversarial",
+          "wrong-specialist"
+        ],
+        "adversarial": true,
+        "trajectory_ref": "sup-009",
+        "notes": "Should route to geography, not math, despite the math-y phrasing."
+      },
+      "output": {
+        "answer": "Paris",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Classified input; routing to geography_specialist.",
+              "action": "route",
+              "tool_call": {
+                "name": "route",
+                "args": {
+                  "to": "geography_specialist"
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": null
+            },
+            {
+              "thought": "Specialist geography_specialist returned: 'Paris'.",
+              "action": "delegate",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the capital of France? Justify your answer with calculus."
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "supervisor"
+          }
+        },
+        "metadata": {
+          "specialist": "geography_specialist"
+        }
+      },
+      "results": [
+        {
+          "evaluator": "exact_match",
+          "row_id": "sup-009",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Exact match against 1 candidate(s).",
+          "details": {
+            "got": "paris",
+            "candidates": [
+              "paris"
+            ]
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "sup-009",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "sup-009",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "sup-009",
+            "step_count": {
+              "got": 2,
+              "ref": 2
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.012747000255330931,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "sup-010",
+        "input": "What is the capital of France or what is the square root of 144?",
+        "expected": {
+          "answer": "Paris",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "adversarial",
+          "ambiguous-routing"
+        ],
+        "adversarial": true,
+        "trajectory_ref": "sup-010",
+        "notes": "Either answer acceptable, but agent should pick one and not split."
+      },
+      "output": {
+        "answer": "12",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Classified input; routing to math_specialist.",
+              "action": "route",
+              "tool_call": {
+                "name": "route",
+                "args": {
+                  "to": "math_specialist"
+                },
+                "result": "12",
+                "duration_ms": null
+              },
+              "observation": null
+            },
+            {
+              "thought": "Specialist math_specialist returned: '12'.",
+              "action": "delegate",
+              "tool_call": {
+                "name": "math_specialist",
+                "args": {
+                  "input": "What is the capital of France or what is the square root of 144?"
+                },
+                "result": "12",
+                "duration_ms": null
+              },
+              "observation": "12"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "supervisor"
+          }
+        },
+        "metadata": {
+          "specialist": "math_specialist"
+        }
+      },
+      "results": [
+        {
+          "evaluator": "exact_match",
+          "row_id": "sup-010",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "No exact match. Got: '12'.",
+          "details": {
+            "got": "12",
+            "candidates": [
+              "paris"
+            ]
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "sup-010",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "sup-010",
+          "passed": false,
+          "score": 0.3666666666666667,
+          "rationale": "steps=1.00 tools=0.42 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "sup-010",
+            "step_count": {
+              "got": 2,
+              "ref": 2
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 0.41666666666666663,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.018416999864712125,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "sup-011",
+        "input": "What is the speed of light in vacuum?",
+        "expected": {
+          "answer": "299792458 m/s",
+          "allowed_answers": null,
+          "must_contain": [
+            "299792458"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": 299792458.0,
+          "numeric_tolerance": 1.0
+        },
+        "tags": [
+          "routing",
+          "physics"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "sup-011",
+        "notes": null
+      },
+      "output": {
+        "answer": "299792458 m/s",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Classified input; routing to general_specialist.",
+              "action": "route",
+              "tool_call": {
+                "name": "route",
+                "args": {
+                  "to": "general_specialist"
+                },
+                "result": "299792458 m/s",
+                "duration_ms": null
+              },
+              "observation": null
+            },
+            {
+              "thought": "Specialist general_specialist returned: '299792458 m/s'.",
+              "action": "delegate",
+              "tool_call": {
+                "name": "general_specialist",
+                "args": {
+                  "input": "What is the speed of light in vacuum?"
+                },
+                "result": "299792458 m/s",
+                "duration_ms": null
+              },
+              "observation": "299792458 m/s"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "supervisor"
+          }
+        },
+        "metadata": {
+          "specialist": "general_specialist"
+        }
+      },
+      "results": [
+        {
+          "evaluator": "exact_match",
+          "row_id": "sup-011",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Exact match against 1 candidate(s).",
+          "details": {
+            "got": "299792458 m/s",
+            "candidates": [
+              "299792458 m/s"
+            ]
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "sup-011",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "sup-011",
+          "passed": true,
+          "score": 0.7666666666666667,
+          "rationale": "steps=1.00 tools=0.42 final=1.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "sup-011",
+            "step_count": {
+              "got": 2,
+              "ref": 2
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 0.41666666666666663,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.03301699962321436,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "sup-012",
+        "input": "What is the capital of Kenya?",
+        "expected": {
+          "answer": "Nairobi",
+          "allowed_answers": null,
+          "must_contain": [
+            "Nairobi"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "routing",
+          "geography"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "sup-012",
+        "notes": null
+      },
+      "output": {
+        "answer": "Nairobi",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Classified input; routing to geography_specialist.",
+              "action": "route",
+              "tool_call": {
+                "name": "route",
+                "args": {
+                  "to": "geography_specialist"
+                },
+                "result": "Nairobi",
+                "duration_ms": null
+              },
+              "observation": null
+            },
+            {
+              "thought": "Specialist geography_specialist returned: 'Nairobi'.",
+              "action": "delegate",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the capital of Kenya?"
+                },
+                "result": "Nairobi",
+                "duration_ms": null
+              },
+              "observation": "Nairobi"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "supervisor"
+          }
+        },
+        "metadata": {
+          "specialist": "geography_specialist"
+        }
+      },
+      "results": [
+        {
+          "evaluator": "exact_match",
+          "row_id": "sup-012",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Exact match against 1 candidate(s).",
+          "details": {
+            "got": "nairobi",
+            "candidates": [
+              "nairobi"
+            ]
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "sup-012",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "sup-012",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "sup-012",
+            "step_count": {
+              "got": 2,
+              "ref": 2
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.013697000213142019,
+      "error": null
+    }
+  ],
+  "config": {
+    "workers": 1,
+    "timeout_s": 60,
+    "seed": 42,
+    "llm_provider": "mock",
+    "agent": "<SupervisorSampleAgent name='SupervisorSampleAgent' pattern='supervisor'>",
+    "dataset": "benchmarks/datasets/supervisor.jsonl",
+    "evaluators": [
+      "exact_match",
+      "llm_judge",
+      "trajectory_match"
+    ]
+  }
+}

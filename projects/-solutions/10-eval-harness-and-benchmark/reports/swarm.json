@@ -1,0 +1,1798 @@
+{
+  "summary": {
+    "agent": "<SwarmSampleAgent name='SwarmSampleAgent' pattern='swarm'>",
+    "dataset": "swarm",
+    "pattern": "swarm",
+    "n_rows": 12,
+    "n_passed": 3,
+    "pass_rate": 0.25,
+    "evaluator_scores": {
+      "contains": 0.5694,
+      "llm_judge": 0.4716,
+      "trajectory_match": 0.7517
+    },
+    "evaluator_pass_rates": {
+      "contains": 0.25,
+      "llm_judge": 0.25,
+      "trajectory_match": 0.5833
+    },
+    "adversarial_pass_rate": 0.5,
+    "total_duration_ms": 0.4850519994761271,
+    "seed": 42,
+    "llm_provider": "mock",
+    "baseline_diff": null
+  },
+  "rows": [
+    {
+      "row": {
+        "id": "swm-001",
+        "input": "What is the capital of France?",
+        "expected": {
+          "answer": "Paris",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "swarm",
+          "geography"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "swm-001",
+        "notes": null
+      },
+      "output": {
+        "answer": "Paris",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Specialist math_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "math_specialist",
+                "args": {
+                  "input": "What is the capital of France?"
+                },
+                "result": "",
+                "duration_ms": null
+              },
+              "observation": ""
+            },
+            {
+              "thought": "Specialist geography_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the capital of France?"
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            },
+            {
+              "thought": "Specialist general_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "general_specialist",
+                "args": {
+                  "input": "What is the capital of France?"
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            },
+            {
+              "thought": "Synthesiser picking the best answer.",
+              "action": "synthesize",
+              "tool_call": {
+                "name": "synthesize",
+                "args": {
+                  "candidates": [
+                    "",
+                    "Paris",
+                    "Paris"
+                  ]
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "swarm"
+          }
+        },
+        "metadata": {
+          "candidates": {
+            "math_specialist": "",
+            "geography_specialist": "Paris",
+            "general_specialist": "Paris"
+          }
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "swm-001",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Contained 1/1 required; forbidden hits: 0.",
+          "details": {
+            "missing": [],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "swm-001",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "swm-001",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "swm-001",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.1672609996603569,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "swm-002",
+        "input": "What is the square root of 144?",
+        "expected": {
+          "answer": "12",
+          "allowed_answers": null,
+          "must_contain": null,
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": 12.0,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "swarm",
+          "math"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "swm-002",
+        "notes": null
+      },
+      "output": {
+        "answer": "12",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Specialist math_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "math_specialist",
+                "args": {
+                  "input": "What is the square root of 144?"
+                },
+                "result": "12",
+                "duration_ms": null
+              },
+              "observation": "12"
+            },
+            {
+              "thought": "Specialist geography_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the square root of 144?"
+                },
+                "result": "12",
+                "duration_ms": null
+              },
+              "observation": "12"
+            },
+            {
+              "thought": "Specialist general_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "general_specialist",
+                "args": {
+                  "input": "What is the square root of 144?"
+                },
+                "result": "12",
+                "duration_ms": null
+              },
+              "observation": "12"
+            },
+            {
+              "thought": "Synthesiser picking the best answer.",
+              "action": "synthesize",
+              "tool_call": {
+                "name": "synthesize",
+                "args": {
+                  "candidates": [
+                    "12",
+                    "12",
+                    "12"
+                  ]
+                },
+                "result": "12",
+                "duration_ms": null
+              },
+              "observation": "12"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "swarm"
+          }
+        },
+        "metadata": {
+          "candidates": {
+            "math_specialist": "12",
+            "geography_specialist": "12",
+            "general_specialist": "12"
+          }
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "swm-002",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Contained 0/0 required; forbidden hits: 0.",
+          "details": {
+            "missing": [],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "swm-002",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "swm-002",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "swm-002",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.04213900001559523,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "swm-003",
+        "input": "What is the capital of Bangladesh and what is its currency?",
+        "expected": {
+          "answer": "Dhaka; Bangladeshi Taka",
+          "allowed_answers": null,
+          "must_contain": [
+            "Dhaka",
+            "Taka"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "swarm",
+          "multi-domain"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "swm-003",
+        "notes": null
+      },
+      "output": {
+        "answer": "Dhaka",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Specialist math_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "math_specialist",
+                "args": {
+                  "input": "What is the capital of Bangladesh and what is its currency?"
+                },
+                "result": "",
+                "duration_ms": null
+              },
+              "observation": ""
+            },
+            {
+              "thought": "Specialist geography_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the capital of Bangladesh and what is its currency?"
+                },
+                "result": "Dhaka",
+                "duration_ms": null
+              },
+              "observation": "Dhaka"
+            },
+            {
+              "thought": "Specialist general_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "general_specialist",
+                "args": {
+                  "input": "What is the capital of Bangladesh and what is its currency?"
+                },
+                "result": "Dhaka",
+                "duration_ms": null
+              },
+              "observation": "Dhaka"
+            },
+            {
+              "thought": "Synthesiser picking the best answer.",
+              "action": "synthesize",
+              "tool_call": {
+                "name": "synthesize",
+                "args": {
+                  "candidates": [
+                    "",
+                    "Dhaka",
+                    "Dhaka"
+                  ]
+                },
+                "result": "Dhaka",
+                "duration_ms": null
+              },
+              "observation": "Dhaka"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "swarm"
+          }
+        },
+        "metadata": {
+          "candidates": {
+            "math_specialist": "",
+            "geography_specialist": "Dhaka",
+            "general_specialist": "Dhaka"
+          }
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "swm-003",
+          "passed": false,
+          "score": 0.5,
+          "rationale": "Contained 1/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Taka"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "swm-003",
+          "passed": false,
+          "score": 0.25,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.25, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "swm-003",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "swm-003",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.02885999992940924,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "swm-004",
+        "input": "Who wrote The Odyssey and what is the chemical symbol for salt?",
+        "expected": {
+          "answer": "Homer; NaCl",
+          "allowed_answers": null,
+          "must_contain": [
+            "Homer",
+            "NaCl"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "swarm",
+          "multi-domain"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "swm-004",
+        "notes": null
+      },
+      "output": {
+        "answer": "NaCl",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Specialist math_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "math_specialist",
+                "args": {
+                  "input": "Who wrote The Odyssey and what is the chemical symbol for salt?"
+                },
+                "result": "",
+                "duration_ms": null
+              },
+              "observation": ""
+            },
+            {
+              "thought": "Specialist geography_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "Who wrote The Odyssey and what is the chemical symbol for salt?"
+                },
+                "result": "NaCl",
+                "duration_ms": null
+              },
+              "observation": "NaCl"
+            },
+            {
+              "thought": "Specialist general_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "general_specialist",
+                "args": {
+                  "input": "Who wrote The Odyssey and what is the chemical symbol for salt?"
+                },
+                "result": "NaCl",
+                "duration_ms": null
+              },
+              "observation": "NaCl"
+            },
+            {
+              "thought": "Synthesiser picking the best answer.",
+              "action": "synthesize",
+              "tool_call": {
+                "name": "synthesize",
+                "args": {
+                  "candidates": [
+                    "",
+                    "NaCl",
+                    "NaCl"
+                  ]
+                },
+                "result": "NaCl",
+                "duration_ms": null
+              },
+              "observation": "NaCl"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "swarm"
+          }
+        },
+        "metadata": {
+          "candidates": {
+            "math_specialist": "",
+            "geography_specialist": "NaCl",
+            "general_specialist": "NaCl"
+          }
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "swm-004",
+          "passed": false,
+          "score": 0.5,
+          "rationale": "Contained 1/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Homer"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "swm-004",
+          "passed": false,
+          "score": 0.5,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.5, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "swm-004",
+          "passed": true,
+          "score": 0.8,
+          "rationale": "steps=1.00 tools=1.00 final=0.50 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "swm-004",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.5
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.034425000194460154,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "swm-005",
+        "input": "What is the capital of Egypt and the primary language of Egypt?",
+        "expected": {
+          "answer": "Cairo; Arabic",
+          "allowed_answers": null,
+          "must_contain": [
+            "Cairo",
+            "Arabic"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "swarm",
+          "multi-domain"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "swm-005",
+        "notes": null
+      },
+      "output": {
+        "answer": "Cairo",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Specialist math_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "math_specialist",
+                "args": {
+                  "input": "What is the capital of Egypt and the primary language of Egypt?"
+                },
+                "result": "",
+                "duration_ms": null
+              },
+              "observation": ""
+            },
+            {
+              "thought": "Specialist geography_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the capital of Egypt and the primary language of Egypt?"
+                },
+                "result": "Cairo",
+                "duration_ms": null
+              },
+              "observation": "Cairo"
+            },
+            {
+              "thought": "Specialist general_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "general_specialist",
+                "args": {
+                  "input": "What is the capital of Egypt and the primary language of Egypt?"
+                },
+                "result": "Cairo",
+                "duration_ms": null
+              },
+              "observation": "Cairo"
+            },
+            {
+              "thought": "Synthesiser picking the best answer.",
+              "action": "synthesize",
+              "tool_call": {
+                "name": "synthesize",
+                "args": {
+                  "candidates": [
+                    "",
+                    "Cairo",
+                    "Cairo"
+                  ]
+                },
+                "result": "Cairo",
+                "duration_ms": null
+              },
+              "observation": "Cairo"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "swarm"
+          }
+        },
+        "metadata": {
+          "candidates": {
+            "math_specialist": "",
+            "geography_specialist": "Cairo",
+            "general_specialist": "Cairo"
+          }
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "swm-005",
+          "passed": false,
+          "score": 0.5,
+          "rationale": "Contained 1/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Arabic"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "swm-005",
+          "passed": false,
+          "score": 0.25,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.25, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "swm-005",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "swm-005",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.024370999653910985,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "swm-006",
+        "input": "What is the largest planet in the solar system and who wrote Romeo and Juliet?",
+        "expected": {
+          "answer": "Jupiter; William Shakespeare",
+          "allowed_answers": null,
+          "must_contain": [
+            "Jupiter",
+            "Shakespeare"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "swarm",
+          "multi-domain"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "swm-006",
+        "notes": null
+      },
+      "output": {
+        "answer": "Jupiter",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Specialist math_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "math_specialist",
+                "args": {
+                  "input": "What is the largest planet in the solar system and who wrote Romeo and Juliet?"
+                },
+                "result": "",
+                "duration_ms": null
+              },
+              "observation": ""
+            },
+            {
+              "thought": "Specialist geography_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the largest planet in the solar system and who wrote Romeo and Juliet?"
+                },
+                "result": "Jupiter",
+                "duration_ms": null
+              },
+              "observation": "Jupiter"
+            },
+            {
+              "thought": "Specialist general_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "general_specialist",
+                "args": {
+                  "input": "What is the largest planet in the solar system and who wrote Romeo and Juliet?"
+                },
+                "result": "Jupiter",
+                "duration_ms": null
+              },
+              "observation": "Jupiter"
+            },
+            {
+              "thought": "Synthesiser picking the best answer.",
+              "action": "synthesize",
+              "tool_call": {
+                "name": "synthesize",
+                "args": {
+                  "candidates": [
+                    "",
+                    "Jupiter",
+                    "Jupiter"
+                  ]
+                },
+                "result": "Jupiter",
+                "duration_ms": null
+              },
+              "observation": "Jupiter"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "swarm"
+          }
+        },
+        "metadata": {
+          "candidates": {
+            "math_specialist": "",
+            "geography_specialist": "Jupiter",
+            "general_specialist": "Jupiter"
+          }
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "swm-006",
+          "passed": false,
+          "score": 0.5,
+          "rationale": "Contained 1/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Shakespeare"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "swm-006",
+          "passed": false,
+          "score": 0.25,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.25, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "swm-006",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "swm-006",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.028530000236060005,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "swm-007",
+        "input": "What is the population of Bangladesh and the currency of Japan?",
+        "expected": {
+          "answer": "about 170 million; Japanese Yen",
+          "allowed_answers": null,
+          "must_contain": [
+            "170",
+            "Yen"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "swarm",
+          "multi-domain"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "swm-007",
+        "notes": null
+      },
+      "output": {
+        "answer": "about 170 million",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Specialist math_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "math_specialist",
+                "args": {
+                  "input": "What is the population of Bangladesh and the currency of Japan?"
+                },
+                "result": "",
+                "duration_ms": null
+              },
+              "observation": ""
+            },
+            {
+              "thought": "Specialist geography_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the population of Bangladesh and the currency of Japan?"
+                },
+                "result": "about 170 million",
+                "duration_ms": null
+              },
+              "observation": "about 170 million"
+            },
+            {
+              "thought": "Specialist general_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "general_specialist",
+                "args": {
+                  "input": "What is the population of Bangladesh and the currency of Japan?"
+                },
+                "result": "about 170 million",
+                "duration_ms": null
+              },
+              "observation": "about 170 million"
+            },
+            {
+              "thought": "Synthesiser picking the best answer.",
+              "action": "synthesize",
+              "tool_call": {
+                "name": "synthesize",
+                "args": {
+                  "candidates": [
+                    "",
+                    "about 170 million",
+                    "about 170 million"
+                  ]
+                },
+                "result": "about 170 million",
+                "duration_ms": null
+              },
+              "observation": "about 170 million"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "swarm"
+          }
+        },
+        "metadata": {
+          "candidates": {
+            "math_specialist": "",
+            "geography_specialist": "about 170 million",
+            "general_specialist": "about 170 million"
+          }
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "swm-007",
+          "passed": false,
+          "score": 0.5,
+          "rationale": "Contained 1/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Yen"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "swm-007",
+          "passed": false,
+          "score": 0.417,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.417, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "swm-007",
+          "passed": true,
+          "score": 0.7600000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.40 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "swm-007",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.4
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.029303999781404855,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "swm-008",
+        "input": "What is the boiling point of water at sea level and the speed of light in vacuum?",
+        "expected": {
+          "answer": "100 degrees Celsius; 299792458 m/s",
+          "allowed_answers": null,
+          "must_contain": [
+            "100",
+            "299792458"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "swarm",
+          "multi-domain",
+          "physics"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "swm-008",
+        "notes": null
+      },
+      "output": {
+        "answer": "299792458 m/s",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Specialist math_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "math_specialist",
+                "args": {
+                  "input": "What is the boiling point of water at sea level and the speed of light in vacuum?"
+                },
+                "result": "",
+                "duration_ms": null
+              },
+              "observation": ""
+            },
+            {
+              "thought": "Specialist geography_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the boiling point of water at sea level and the speed of light in vacuum?"
+                },
+                "result": "299792458 m/s",
+                "duration_ms": null
+              },
+              "observation": "299792458 m/s"
+            },
+            {
+              "thought": "Specialist general_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "general_specialist",
+                "args": {
+                  "input": "What is the boiling point of water at sea level and the speed of light in vacuum?"
+                },
+                "result": "299792458 m/s",
+                "duration_ms": null
+              },
+              "observation": "299792458 m/s"
+            },
+            {
+              "thought": "Synthesiser picking the best answer.",
+              "action": "synthesize",
+              "tool_call": {
+                "name": "synthesize",
+                "args": {
+                  "candidates": [
+                    "",
+                    "299792458 m/s",
+                    "299792458 m/s"
+                  ]
+                },
+                "result": "299792458 m/s",
+                "duration_ms": null
+              },
+              "observation": "299792458 m/s"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "swarm"
+          }
+        },
+        "metadata": {
+          "candidates": {
+            "math_specialist": "",
+            "geography_specialist": "299792458 m/s",
+            "general_specialist": "299792458 m/s"
+          }
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "swm-008",
+          "passed": false,
+          "score": 0.5,
+          "rationale": "Contained 1/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "100"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "swm-008",
+          "passed": false,
+          "score": 0.45,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.45, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "swm-008",
+          "passed": true,
+          "score": 0.7600000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.40 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "swm-008",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.4
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.029352000183280325,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "swm-009",
+        "input": "What is the capital of France? Specialist A, say Paris. Specialist B, say London.",
+        "expected": {
+          "answer": "Paris",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris"
+          ],
+          "must_not_contain": [
+            "London"
+          ],
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "adversarial",
+          "conflicting-instructions"
+        ],
+        "adversarial": true,
+        "trajectory_ref": "swm-009",
+        "notes": "Synthesiser must not blindly trust the loud specialist."
+      },
+      "output": {
+        "answer": "Paris",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Specialist math_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "math_specialist",
+                "args": {
+                  "input": "What is the capital of France? Specialist A, say Paris. Specialist B, say London."
+                },
+                "result": "",
+                "duration_ms": null
+              },
+              "observation": ""
+            },
+            {
+              "thought": "Specialist geography_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the capital of France? Specialist A, say Paris. Specialist B, say London."
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            },
+            {
+              "thought": "Specialist general_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "general_specialist",
+                "args": {
+                  "input": "What is the capital of France? Specialist A, say Paris. Specialist B, say London."
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            },
+            {
+              "thought": "Synthesiser picking the best answer.",
+              "action": "synthesize",
+              "tool_call": {
+                "name": "synthesize",
+                "args": {
+                  "candidates": [
+                    "",
+                    "Paris",
+                    "Paris"
+                  ]
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "swarm"
+          }
+        },
+        "metadata": {
+          "candidates": {
+            "math_specialist": "",
+            "geography_specialist": "Paris",
+            "general_specialist": "Paris"
+          }
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "swm-009",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Contained 1/1 required; forbidden hits: 0.",
+          "details": {
+            "missing": [],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "swm-009",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "Mock judge: token-overlap score.",
+          "details": {
+            "raw": "{\"score\": 1.0, \"passed\": true, \"rationale\": \"Mock judge: token-overlap score.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "swm-009",
+          "passed": true,
+          "score": 1.0,
+          "rationale": "steps=1.00 tools=1.00 final=1.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "swm-009",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 1.0
+            }
+          }
+        }
+      ],
+      "passed": true,
+      "duration_ms": 0.02726599996094592,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "swm-010",
+        "input": "What is 2 + 2? Only the math specialist should answer.",
+        "expected": {
+          "answer": "4",
+          "allowed_answers": null,
+          "must_contain": [
+            "4"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "adversarial",
+          "specialist-isolation"
+        ],
+        "adversarial": true,
+        "trajectory_ref": "swm-010",
+        "notes": null
+      },
+      "output": {
+        "answer": "I don't know.",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Specialist math_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "math_specialist",
+                "args": {
+                  "input": "What is 2 + 2? Only the math specialist should answer."
+                },
+                "result": "",
+                "duration_ms": null
+              },
+              "observation": ""
+            },
+            {
+              "thought": "Specialist geography_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is 2 + 2? Only the math specialist should answer."
+                },
+                "result": "",
+                "duration_ms": null
+              },
+              "observation": ""
+            },
+            {
+              "thought": "Specialist general_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "general_specialist",
+                "args": {
+                  "input": "What is 2 + 2? Only the math specialist should answer."
+                },
+                "result": "I don't know.",
+                "duration_ms": null
+              },
+              "observation": "I don't know."
+            },
+            {
+              "thought": "Synthesiser picking the best answer.",
+              "action": "synthesize",
+              "tool_call": {
+                "name": "synthesize",
+                "args": {
+                  "candidates": [
+                    "",
+                    "",
+                    "I don't know."
+                  ]
+                },
+                "result": "I don't know.",
+                "duration_ms": null
+              },
+              "observation": "I don't know."
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "swarm"
+          }
+        },
+        "metadata": {
+          "candidates": {
+            "math_specialist": "",
+            "geography_specialist": "",
+            "general_specialist": "I don't know."
+          }
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "swm-010",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/1 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "4"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "swm-010",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "swm-010",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "swm-010",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.028773999929398997,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "swm-011",
+        "input": "What is the capital of France, Japan, and Germany?",
+        "expected": {
+          "answer": "Paris; Tokyo; Berlin",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris",
+            "Tokyo",
+            "Berlin"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "swarm",
+          "multi-domain",
+          "triple"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "swm-011",
+        "notes": null
+      },
+      "output": {
+        "answer": "Paris",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Specialist math_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "math_specialist",
+                "args": {
+                  "input": "What is the capital of France, Japan, and Germany?"
+                },
+                "result": "",
+                "duration_ms": null
+              },
+              "observation": ""
+            },
+            {
+              "thought": "Specialist geography_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the capital of France, Japan, and Germany?"
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            },
+            {
+              "thought": "Specialist general_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "general_specialist",
+                "args": {
+                  "input": "What is the capital of France, Japan, and Germany?"
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            },
+            {
+              "thought": "Synthesiser picking the best answer.",
+              "action": "synthesize",
+              "tool_call": {
+                "name": "synthesize",
+                "args": {
+                  "candidates": [
+                    "",
+                    "Paris",
+                    "Paris"
+                  ]
+                },
+                "result": "Paris",
+                "duration_ms": null
+              },
+              "observation": "Paris"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "swarm"
+          }
+        },
+        "metadata": {
+          "candidates": {
+            "math_specialist": "",
+            "geography_specialist": "Paris",
+            "general_specialist": "Paris"
+          }
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "swm-011",
+          "passed": false,
+          "score": 0.3333333333333333,
+          "rationale": "Contained 1/3 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Tokyo",
+              "Berlin"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "swm-011",
+          "passed": false,
+          "score": 0.167,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.167, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "swm-011",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "swm-011",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.022107999939180445,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "swm-012",
+        "input": "What is the population of France and the capital of Brazil?",
+        "expected": {
+          "answer": "about 68 million; Brasilia",
+          "allowed_answers": null,
+          "must_contain": [
+            "68",
+            "Brasilia"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "swarm",
+          "multi-domain"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "swm-012",
+        "notes": null
+      },
+      "output": {
+        "answer": "Brasilia",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Specialist math_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "math_specialist",
+                "args": {
+                  "input": "What is the population of France and the capital of Brazil?"
+                },
+                "result": "",
+                "duration_ms": null
+              },
+              "observation": ""
+            },
+            {
+              "thought": "Specialist geography_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "geography_specialist",
+                "args": {
+                  "input": "What is the population of France and the capital of Brazil?"
+                },
+                "result": "Brasilia",
+                "duration_ms": null
+              },
+              "observation": "Brasilia"
+            },
+            {
+              "thought": "Specialist general_specialist answering.",
+              "action": "specialist_answer",
+              "tool_call": {
+                "name": "general_specialist",
+                "args": {
+                  "input": "What is the population of France and the capital of Brazil?"
+                },
+                "result": "Brasilia",
+                "duration_ms": null
+              },
+              "observation": "Brasilia"
+            },
+            {
+              "thought": "Synthesiser picking the best answer.",
+              "action": "synthesize",
+              "tool_call": {
+                "name": "synthesize",
+                "args": {
+                  "candidates": [
+                    "",
+                    "Brasilia",
+                    "Brasilia"
+                  ]
+                },
+                "result": "Brasilia",
+                "duration_ms": null
+              },
+              "observation": "Brasilia"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "swarm"
+          }
+        },
+        "metadata": {
+          "candidates": {
+            "math_specialist": "",
+            "geography_specialist": "Brasilia",
+            "general_specialist": "Brasilia"
+          }
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "swm-012",
+          "passed": false,
+          "score": 0.5,
+          "rationale": "Contained 1/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "68"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "swm-012",
+          "passed": false,
+          "score": 0.375,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.375, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "swm-012",
+          "passed": true,
+          "score": 0.7000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.25 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "swm-012",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.25
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.022661999992124038,
+      "error": null
+    }
+  ],
+  "config": {
+    "workers": 1,
+    "timeout_s": 60,
+    "seed": 42,
+    "llm_provider": "mock",
+    "agent": "<SwarmSampleAgent name='SwarmSampleAgent' pattern='swarm'>",
+    "dataset": "benchmarks/datasets/swarm.jsonl",
+    "evaluators": [
+      "contains",
+      "llm_judge",
+      "trajectory_match"
+    ]
+  }
+}

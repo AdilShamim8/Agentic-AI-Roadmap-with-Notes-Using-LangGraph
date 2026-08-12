@@ -1,0 +1,1780 @@
+{
+  "summary": {
+    "agent": "<MapReduceSampleAgent name='MapReduceSampleAgent' pattern='map_reduce'>",
+    "dataset": "map_reduce",
+    "pattern": "map_reduce",
+    "n_rows": 12,
+    "n_passed": 0,
+    "pass_rate": 0.0,
+    "evaluator_scores": {
+      "contains": 0.0278,
+      "llm_judge": 0.0139,
+      "trajectory_match": 0.6
+    },
+    "evaluator_pass_rates": {
+      "contains": 0.0,
+      "llm_judge": 0.0,
+      "trajectory_match": 0.0
+    },
+    "adversarial_pass_rate": 0.0,
+    "total_duration_ms": 0.6364779992509284,
+    "seed": 42,
+    "llm_provider": "mock",
+    "baseline_diff": null
+  },
+  "rows": [
+    {
+      "row": {
+        "id": "mr-001",
+        "input": "What are the capitals of France, Japan, and Germany?",
+        "expected": {
+          "answer": "Paris; Tokyo; Berlin",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris",
+            "Tokyo",
+            "Berlin"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "map-reduce",
+          "geography"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "mr-001",
+        "notes": null
+      },
+      "output": {
+        "answer": "unknown (What are the capitals of France); unknown (Japan); unknown (Germany?)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Split input into 3 chunk(s): ['What are the capitals of France', 'Japan', 'Germany?'].",
+              "action": "map_split",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Mapping chunk 1: 'What are the capitals of France'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "What are the capitals of France"
+                },
+                "result": "unknown (What are the capitals of France)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the capitals of France)"
+            },
+            {
+              "thought": "Mapping chunk 2: 'Japan'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "Japan"
+                },
+                "result": "unknown (Japan)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Japan)"
+            },
+            {
+              "thought": "Mapping chunk 3: 'Germany?'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "Germany?"
+                },
+                "result": "unknown (Germany?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Germany?)"
+            },
+            {
+              "thought": "Reducing partial results into final answer.",
+              "action": "reduce",
+              "tool_call": {
+                "name": "reduce",
+                "args": {
+                  "partials": [
+                    "unknown (What are the capitals of France)",
+                    "unknown (Japan)",
+                    "unknown (Germany?)"
+                  ]
+                },
+                "result": "unknown (What are the capitals of France); unknown (Japan); unknown (Germany?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the capitals of France); unknown (Japan); unknown (Germany?)"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "map_reduce"
+          }
+        },
+        "metadata": {
+          "n_chunks": 3
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "mr-001",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/3 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Paris",
+              "Tokyo",
+              "Berlin"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "mr-001",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "mr-001",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "mr-001",
+            "step_count": {
+              "got": 5,
+              "ref": 5
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.1756960000420804,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "mr-002",
+        "input": "What are the capitals of France and Brazil?",
+        "expected": {
+          "answer": "Paris; Brasilia",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris",
+            "Brasilia"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "map-reduce",
+          "geography"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "mr-002",
+        "notes": null
+      },
+      "output": {
+        "answer": "unknown (What are the capitals of France); unknown (Brazil?)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Split input into 2 chunk(s): ['What are the capitals of France', 'Brazil?'].",
+              "action": "map_split",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Mapping chunk 1: 'What are the capitals of France'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "What are the capitals of France"
+                },
+                "result": "unknown (What are the capitals of France)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the capitals of France)"
+            },
+            {
+              "thought": "Mapping chunk 2: 'Brazil?'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "Brazil?"
+                },
+                "result": "unknown (Brazil?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Brazil?)"
+            },
+            {
+              "thought": "Reducing partial results into final answer.",
+              "action": "reduce",
+              "tool_call": {
+                "name": "reduce",
+                "args": {
+                  "partials": [
+                    "unknown (What are the capitals of France)",
+                    "unknown (Brazil?)"
+                  ]
+                },
+                "result": "unknown (What are the capitals of France); unknown (Brazil?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the capitals of France); unknown (Brazil?)"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "map_reduce"
+          }
+        },
+        "metadata": {
+          "n_chunks": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "mr-002",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Paris",
+              "Brasilia"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "mr-002",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "mr-002",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "mr-002",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.04248300001563621,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "mr-003",
+        "input": "What are the currencies of Japan, Bangladesh, and the European Union?",
+        "expected": {
+          "answer": "Japanese Yen; Bangladeshi Taka; Euro",
+          "allowed_answers": null,
+          "must_contain": [
+            "Yen",
+            "Taka",
+            "Euro"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "map-reduce",
+          "finance"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "mr-003",
+        "notes": null
+      },
+      "output": {
+        "answer": "unknown (What are the currencies of Japan); unknown (Bangladesh); unknown (the European Union?)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Split input into 3 chunk(s): ['What are the currencies of Japan', 'Bangladesh', 'the European Union?'].",
+              "action": "map_split",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Mapping chunk 1: 'What are the currencies of Japan'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "What are the currencies of Japan"
+                },
+                "result": "unknown (What are the currencies of Japan)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the currencies of Japan)"
+            },
+            {
+              "thought": "Mapping chunk 2: 'Bangladesh'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "Bangladesh"
+                },
+                "result": "unknown (Bangladesh)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Bangladesh)"
+            },
+            {
+              "thought": "Mapping chunk 3: 'the European Union?'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "the European Union?"
+                },
+                "result": "unknown (the European Union?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (the European Union?)"
+            },
+            {
+              "thought": "Reducing partial results into final answer.",
+              "action": "reduce",
+              "tool_call": {
+                "name": "reduce",
+                "args": {
+                  "partials": [
+                    "unknown (What are the currencies of Japan)",
+                    "unknown (Bangladesh)",
+                    "unknown (the European Union?)"
+                  ]
+                },
+                "result": "unknown (What are the currencies of Japan); unknown (Bangladesh); unknown (the European Union?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the currencies of Japan); unknown (Bangladesh); unknown (the European Union?)"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "map_reduce"
+          }
+        },
+        "metadata": {
+          "n_chunks": 3
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "mr-003",
+          "passed": false,
+          "score": 0.3333333333333333,
+          "rationale": "Contained 1/3 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Yen",
+              "Taka"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "mr-003",
+          "passed": false,
+          "score": 0.167,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.167, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "mr-003",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "mr-003",
+            "step_count": {
+              "got": 5,
+              "ref": 5
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.06557400001838687,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "mr-004",
+        "input": "What are the chemical symbols for gold, water, and salt?",
+        "expected": {
+          "answer": "Au; H2O; NaCl",
+          "allowed_answers": null,
+          "must_contain": [
+            "Au",
+            "H2O",
+            "NaCl"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "map-reduce",
+          "chemistry"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "mr-004",
+        "notes": null
+      },
+      "output": {
+        "answer": "unknown (What are the chemical symbols for gold); unknown (water); unknown (salt?)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Split input into 3 chunk(s): ['What are the chemical symbols for gold', 'water', 'salt?'].",
+              "action": "map_split",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Mapping chunk 1: 'What are the chemical symbols for gold'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "What are the chemical symbols for gold"
+                },
+                "result": "unknown (What are the chemical symbols for gold)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the chemical symbols for gold)"
+            },
+            {
+              "thought": "Mapping chunk 2: 'water'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "water"
+                },
+                "result": "unknown (water)",
+                "duration_ms": null
+              },
+              "observation": "unknown (water)"
+            },
+            {
+              "thought": "Mapping chunk 3: 'salt?'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "salt?"
+                },
+                "result": "unknown (salt?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (salt?)"
+            },
+            {
+              "thought": "Reducing partial results into final answer.",
+              "action": "reduce",
+              "tool_call": {
+                "name": "reduce",
+                "args": {
+                  "partials": [
+                    "unknown (What are the chemical symbols for gold)",
+                    "unknown (water)",
+                    "unknown (salt?)"
+                  ]
+                },
+                "result": "unknown (What are the chemical symbols for gold); unknown (water); unknown (salt?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the chemical symbols for gold); unknown (water); unknown (salt?)"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "map_reduce"
+          }
+        },
+        "metadata": {
+          "n_chunks": 3
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "mr-004",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/3 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Au",
+              "H2O",
+              "NaCl"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "mr-004",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "mr-004",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "mr-004",
+            "step_count": {
+              "got": 5,
+              "ref": 5
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.04195700012132875,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "mr-005",
+        "input": "What are the primary languages of Brazil and Egypt?",
+        "expected": {
+          "answer": "Portuguese; Arabic",
+          "allowed_answers": null,
+          "must_contain": [
+            "Portuguese",
+            "Arabic"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "map-reduce",
+          "linguistics"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "mr-005",
+        "notes": null
+      },
+      "output": {
+        "answer": "unknown (What are the primary languages of Brazil); unknown (Egypt?)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Split input into 2 chunk(s): ['What are the primary languages of Brazil', 'Egypt?'].",
+              "action": "map_split",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Mapping chunk 1: 'What are the primary languages of Brazil'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "What are the primary languages of Brazil"
+                },
+                "result": "unknown (What are the primary languages of Brazil)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the primary languages of Brazil)"
+            },
+            {
+              "thought": "Mapping chunk 2: 'Egypt?'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "Egypt?"
+                },
+                "result": "unknown (Egypt?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Egypt?)"
+            },
+            {
+              "thought": "Reducing partial results into final answer.",
+              "action": "reduce",
+              "tool_call": {
+                "name": "reduce",
+                "args": {
+                  "partials": [
+                    "unknown (What are the primary languages of Brazil)",
+                    "unknown (Egypt?)"
+                  ]
+                },
+                "result": "unknown (What are the primary languages of Brazil); unknown (Egypt?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the primary languages of Brazil); unknown (Egypt?)"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "map_reduce"
+          }
+        },
+        "metadata": {
+          "n_chunks": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "mr-005",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Portuguese",
+              "Arabic"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "mr-005",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "mr-005",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "mr-005",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.03121899999314337,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "mr-006",
+        "input": "What are the capitals of Canada and Egypt?",
+        "expected": {
+          "answer": "Ottawa; Cairo",
+          "allowed_answers": null,
+          "must_contain": [
+            "Ottawa",
+            "Cairo"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "map-reduce",
+          "geography"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "mr-006",
+        "notes": null
+      },
+      "output": {
+        "answer": "unknown (What are the capitals of Canada); unknown (Egypt?)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Split input into 2 chunk(s): ['What are the capitals of Canada', 'Egypt?'].",
+              "action": "map_split",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Mapping chunk 1: 'What are the capitals of Canada'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "What are the capitals of Canada"
+                },
+                "result": "unknown (What are the capitals of Canada)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the capitals of Canada)"
+            },
+            {
+              "thought": "Mapping chunk 2: 'Egypt?'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "Egypt?"
+                },
+                "result": "unknown (Egypt?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Egypt?)"
+            },
+            {
+              "thought": "Reducing partial results into final answer.",
+              "action": "reduce",
+              "tool_call": {
+                "name": "reduce",
+                "args": {
+                  "partials": [
+                    "unknown (What are the capitals of Canada)",
+                    "unknown (Egypt?)"
+                  ]
+                },
+                "result": "unknown (What are the capitals of Canada); unknown (Egypt?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the capitals of Canada); unknown (Egypt?)"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "map_reduce"
+          }
+        },
+        "metadata": {
+          "n_chunks": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "mr-006",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Ottawa",
+              "Cairo"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "mr-006",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "mr-006",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "mr-006",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.03376599988769158,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "mr-007",
+        "input": "What are the populations of France and Japan?",
+        "expected": {
+          "answer": "about 68 million; about 125 million",
+          "allowed_answers": null,
+          "must_contain": [
+            "68",
+            "125"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "map-reduce",
+          "demographics"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "mr-007",
+        "notes": null
+      },
+      "output": {
+        "answer": "unknown (What are the populations of France); unknown (Japan?)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Split input into 2 chunk(s): ['What are the populations of France', 'Japan?'].",
+              "action": "map_split",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Mapping chunk 1: 'What are the populations of France'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "What are the populations of France"
+                },
+                "result": "unknown (What are the populations of France)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the populations of France)"
+            },
+            {
+              "thought": "Mapping chunk 2: 'Japan?'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "Japan?"
+                },
+                "result": "unknown (Japan?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Japan?)"
+            },
+            {
+              "thought": "Reducing partial results into final answer.",
+              "action": "reduce",
+              "tool_call": {
+                "name": "reduce",
+                "args": {
+                  "partials": [
+                    "unknown (What are the populations of France)",
+                    "unknown (Japan?)"
+                  ]
+                },
+                "result": "unknown (What are the populations of France); unknown (Japan?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the populations of France); unknown (Japan?)"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "map_reduce"
+          }
+        },
+        "metadata": {
+          "n_chunks": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "mr-007",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "68",
+              "125"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "mr-007",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "mr-007",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "mr-007",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.041574000078981044,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "mr-008",
+        "input": "What are the capitals of Australia and Kenya?",
+        "expected": {
+          "answer": "Canberra; Nairobi",
+          "allowed_answers": null,
+          "must_contain": [
+            "Canberra",
+            "Nairobi"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "map-reduce",
+          "geography"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "mr-008",
+        "notes": null
+      },
+      "output": {
+        "answer": "unknown (What are the capitals of Australia); unknown (Kenya?)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Split input into 2 chunk(s): ['What are the capitals of Australia', 'Kenya?'].",
+              "action": "map_split",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Mapping chunk 1: 'What are the capitals of Australia'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "What are the capitals of Australia"
+                },
+                "result": "unknown (What are the capitals of Australia)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the capitals of Australia)"
+            },
+            {
+              "thought": "Mapping chunk 2: 'Kenya?'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "Kenya?"
+                },
+                "result": "unknown (Kenya?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Kenya?)"
+            },
+            {
+              "thought": "Reducing partial results into final answer.",
+              "action": "reduce",
+              "tool_call": {
+                "name": "reduce",
+                "args": {
+                  "partials": [
+                    "unknown (What are the capitals of Australia)",
+                    "unknown (Kenya?)"
+                  ]
+                },
+                "result": "unknown (What are the capitals of Australia); unknown (Kenya?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the capitals of Australia); unknown (Kenya?)"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "map_reduce"
+          }
+        },
+        "metadata": {
+          "n_chunks": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "mr-008",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Canberra",
+              "Nairobi"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "mr-008",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "mr-008",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "mr-008",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.036080999961995985,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "mr-009",
+        "input": "What are the capitals of France, Japan, and Mars?",
+        "expected": {
+          "answer": "Paris; Tokyo; Mars has no capital",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris",
+            "Tokyo"
+          ],
+          "must_not_contain": [
+            "capital of Mars is"
+          ],
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "adversarial",
+          "impossible-item"
+        ],
+        "adversarial": true,
+        "trajectory_ref": "mr-009",
+        "notes": "Map step should produce 'unknown' for Mars, not a hallucinated capital."
+      },
+      "output": {
+        "answer": "unknown (What are the capitals of France); unknown (Japan); unknown (Mars?)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Split input into 3 chunk(s): ['What are the capitals of France', 'Japan', 'Mars?'].",
+              "action": "map_split",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Mapping chunk 1: 'What are the capitals of France'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "What are the capitals of France"
+                },
+                "result": "unknown (What are the capitals of France)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the capitals of France)"
+            },
+            {
+              "thought": "Mapping chunk 2: 'Japan'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "Japan"
+                },
+                "result": "unknown (Japan)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Japan)"
+            },
+            {
+              "thought": "Mapping chunk 3: 'Mars?'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "Mars?"
+                },
+                "result": "unknown (Mars?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Mars?)"
+            },
+            {
+              "thought": "Reducing partial results into final answer.",
+              "action": "reduce",
+              "tool_call": {
+                "name": "reduce",
+                "args": {
+                  "partials": [
+                    "unknown (What are the capitals of France)",
+                    "unknown (Japan)",
+                    "unknown (Mars?)"
+                  ]
+                },
+                "result": "unknown (What are the capitals of France); unknown (Japan); unknown (Mars?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the capitals of France); unknown (Japan); unknown (Mars?)"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "map_reduce"
+          }
+        },
+        "metadata": {
+          "n_chunks": 3
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "mr-009",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Paris",
+              "Tokyo"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "mr-009",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "mr-009",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "mr-009",
+            "step_count": {
+              "got": 5,
+              "ref": 5
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.038035999750718474,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "mr-010",
+        "input": "What are the capitals of France, France, and France?",
+        "expected": {
+          "answer": "Paris; Paris; Paris",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "adversarial",
+          "duplicates"
+        ],
+        "adversarial": true,
+        "trajectory_ref": "mr-010",
+        "notes": null
+      },
+      "output": {
+        "answer": "unknown (What are the capitals of France); unknown (France); unknown (France?)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Split input into 3 chunk(s): ['What are the capitals of France', 'France', 'France?'].",
+              "action": "map_split",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Mapping chunk 1: 'What are the capitals of France'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "What are the capitals of France"
+                },
+                "result": "unknown (What are the capitals of France)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the capitals of France)"
+            },
+            {
+              "thought": "Mapping chunk 2: 'France'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "France"
+                },
+                "result": "unknown (France)",
+                "duration_ms": null
+              },
+              "observation": "unknown (France)"
+            },
+            {
+              "thought": "Mapping chunk 3: 'France?'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "France?"
+                },
+                "result": "unknown (France?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (France?)"
+            },
+            {
+              "thought": "Reducing partial results into final answer.",
+              "action": "reduce",
+              "tool_call": {
+                "name": "reduce",
+                "args": {
+                  "partials": [
+                    "unknown (What are the capitals of France)",
+                    "unknown (France)",
+                    "unknown (France?)"
+                  ]
+                },
+                "result": "unknown (What are the capitals of France); unknown (France); unknown (France?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the capitals of France); unknown (France); unknown (France?)"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "map_reduce"
+          }
+        },
+        "metadata": {
+          "n_chunks": 3
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "mr-010",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/1 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Paris"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "mr-010",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "mr-010",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "mr-010",
+            "step_count": {
+              "got": 5,
+              "ref": 5
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.039184999877761584,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "mr-011",
+        "input": "What are the square roots of 144 and 256?",
+        "expected": {
+          "answer": "12; 16",
+          "allowed_answers": null,
+          "must_contain": [
+            "12",
+            "16"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "map-reduce",
+          "math"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "mr-011",
+        "notes": null
+      },
+      "output": {
+        "answer": "unknown (What are the square roots of 144); unknown (256?)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Split input into 2 chunk(s): ['What are the square roots of 144', '256?'].",
+              "action": "map_split",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Mapping chunk 1: 'What are the square roots of 144'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "What are the square roots of 144"
+                },
+                "result": "unknown (What are the square roots of 144)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the square roots of 144)"
+            },
+            {
+              "thought": "Mapping chunk 2: '256?'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "256?"
+                },
+                "result": "unknown (256?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (256?)"
+            },
+            {
+              "thought": "Reducing partial results into final answer.",
+              "action": "reduce",
+              "tool_call": {
+                "name": "reduce",
+                "args": {
+                  "partials": [
+                    "unknown (What are the square roots of 144)",
+                    "unknown (256?)"
+                  ]
+                },
+                "result": "unknown (What are the square roots of 144); unknown (256?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the square roots of 144); unknown (256?)"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "map_reduce"
+          }
+        },
+        "metadata": {
+          "n_chunks": 2
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "mr-011",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/2 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "12",
+              "16"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "mr-011",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "mr-011",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "mr-011",
+            "step_count": {
+              "got": 4,
+              "ref": 4
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.03653299972938839,
+      "error": null
+    },
+    {
+      "row": {
+        "id": "mr-012",
+        "input": "What are the capitals of France, Japan, Germany, and Brazil?",
+        "expected": {
+          "answer": "Paris; Tokyo; Berlin; Brasilia",
+          "allowed_answers": null,
+          "must_contain": [
+            "Paris",
+            "Tokyo",
+            "Berlin",
+            "Brasilia"
+          ],
+          "must_not_contain": null,
+          "regex": null,
+          "numeric_value": null,
+          "numeric_tolerance": 0.01
+        },
+        "tags": [
+          "map-reduce",
+          "geography",
+          "quad"
+        ],
+        "adversarial": false,
+        "trajectory_ref": "mr-012",
+        "notes": null
+      },
+      "output": {
+        "answer": "unknown (What are the capitals of France); unknown (Japan); unknown (Germany); unknown (Brazil?)",
+        "trajectory": {
+          "steps": [
+            {
+              "thought": "Split input into 4 chunk(s): ['What are the capitals of France', 'Japan', 'Germany', 'Brazil?'].",
+              "action": "map_split",
+              "tool_call": null,
+              "observation": null
+            },
+            {
+              "thought": "Mapping chunk 1: 'What are the capitals of France'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "What are the capitals of France"
+                },
+                "result": "unknown (What are the capitals of France)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the capitals of France)"
+            },
+            {
+              "thought": "Mapping chunk 2: 'Japan'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "Japan"
+                },
+                "result": "unknown (Japan)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Japan)"
+            },
+            {
+              "thought": "Mapping chunk 3: 'Germany'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "Germany"
+                },
+                "result": "unknown (Germany)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Germany)"
+            },
+            {
+              "thought": "Mapping chunk 4: 'Brazil?'",
+              "action": "map",
+              "tool_call": {
+                "name": "lookup",
+                "args": {
+                  "chunk": "Brazil?"
+                },
+                "result": "unknown (Brazil?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (Brazil?)"
+            },
+            {
+              "thought": "Reducing partial results into final answer.",
+              "action": "reduce",
+              "tool_call": {
+                "name": "reduce",
+                "args": {
+                  "partials": [
+                    "unknown (What are the capitals of France)",
+                    "unknown (Japan)",
+                    "unknown (Germany)",
+                    "unknown (Brazil?)"
+                  ]
+                },
+                "result": "unknown (What are the capitals of France); unknown (Japan); unknown (Germany); unknown (Brazil?)",
+                "duration_ms": null
+              },
+              "observation": "unknown (What are the capitals of France); unknown (Japan); unknown (Germany); unknown (Brazil?)"
+            }
+          ],
+          "total_duration_ms": null,
+          "metadata": {
+            "pattern": "map_reduce"
+          }
+        },
+        "metadata": {
+          "n_chunks": 4
+        }
+      },
+      "results": [
+        {
+          "evaluator": "contains",
+          "row_id": "mr-012",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Contained 0/4 required; forbidden hits: 0.",
+          "details": {
+            "missing": [
+              "Paris",
+              "Tokyo",
+              "Berlin",
+              "Brasilia"
+            ],
+            "forbidden_hits": []
+          }
+        },
+        {
+          "evaluator": "llm_judge",
+          "row_id": "mr-012",
+          "passed": false,
+          "score": 0.0,
+          "rationale": "Mock judge: insufficient token overlap with expected answer.",
+          "details": {
+            "raw": "{\"score\": 0.0, \"passed\": false, \"rationale\": \"Mock judge: insufficient token overlap with expected answer.\"}"
+          }
+        },
+        {
+          "evaluator": "trajectory_match",
+          "row_id": "mr-012",
+          "passed": false,
+          "score": 0.6000000000000001,
+          "rationale": "steps=1.00 tools=1.00 final=0.00 (weights 0.2/0.4/0.4).",
+          "details": {
+            "reference_found": true,
+            "reference_id": "mr-012",
+            "step_count": {
+              "got": 6,
+              "ref": 6
+            },
+            "subscores": {
+              "steps": 1.0,
+              "tools": 1.0,
+              "final": 0.0
+            }
+          }
+        }
+      ],
+      "passed": false,
+      "duration_ms": 0.05437399977381574,
+      "error": null
+    }
+  ],
+  "config": {
+    "workers": 1,
+    "timeout_s": 60,
+    "seed": 42,
+    "llm_provider": "mock",
+    "agent": "<MapReduceSampleAgent name='MapReduceSampleAgent' pattern='map_reduce'>",
+    "dataset": "benchmarks/datasets/map_reduce.jsonl",
+    "evaluators": [
+      "contains",
+      "llm_judge",
+      "trajectory_match"
+    ]
+  }
+}

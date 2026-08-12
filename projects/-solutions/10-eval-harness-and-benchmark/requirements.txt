@@ -1,0 +1,14 @@
+# Core
+pydantic>=2.5,<3.0
+pyyaml>=6.0
+rich>=13.7
+typer>=0.12
+jinja2>=3.1
+python-dotenv>=1.0
+
+# Optional - LLM-as-judge evaluators (uncomment to enable real LLM judges)
+# openai>=1.30
+# anthropic>=0.25
+
+# Optional - LangSmith trace-level analysis
+# langsmith>=0.1.50
