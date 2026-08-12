@@ -55,4 +55,4 @@ This project exercises the evaluation discipline from module 06 at its fullest. 
 
 ## Solution
 
-Reference solution: [projects/-solutions/10-eval-harness-and-benchmark/](-solutions/10-eval-harness-and-benchmark/) (coming soon). Build your own first.
+Reference solution: [projects/-solutions/10-eval-harness-and-benchmark/](https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects/tree/main/projects/-solutions/10-eval-harness-and-benchmark) (coming soon). Build your own first.
