@@ -66,4 +66,5 @@ graph LR
 
 ## Solution
 
-Reference solution: [projects/-solutions/08-cross-framework-network/](https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects/tree/main/projects/-solutions/08-cross-framework-network) (coming soon). Build your own first.
+Reference solution: [projects/-solutions/08-cross-framework-network/](https://github.com/AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects/tree/main/projects/-solutions/08-cross-framework-network)
+Build your own first.
