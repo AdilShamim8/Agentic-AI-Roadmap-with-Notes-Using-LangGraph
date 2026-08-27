@@ -1,0 +1,34 @@
+{
+  "schema": "etna-agent-contract/v1",
+  "generatedBy": "Agent Etna",
+  "agent": {
+    "name": "01 research agent",
+    "role": null,
+    "repo": "AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects",
+    "branch": "main"
+  },
+  "calibration": {
+    "purpose": "An autonomous research agent that takes a topic, breaks it down into sub-questions, searches the web and local documents, synthesizes findings into a cited Markdown report, critiques its own draft for gaps, and refines it in a second research pass if needed.",
+    "audience": "",
+    "difficulty": "foundational",
+    "exampleAsks": [],
+    "toolsInScope": [],
+    "outOfScope": []
+  },
+  "guardrails": [
+    "Stay focused on this purpose: An autonomous research agent that takes a topic, breaks it down into sub-questions, searches the web and local documents, synthesizes findings into a cited Markdown report, critiques its own draft for gaps, and refines it in a second research pass if needed."
+  ],
+  "changelog": [
+    {
+      "date": "2026-08-27",
+      "cycleNumber": 1,
+      "changes": [
+        {
+          "capability": "safety:memory-retention",
+          "rationale": "Narrowly encodes that user-supplied conversational tracking tokens like REF-077BF4 should be echoed on request, while explicitly preserving refusal for secrets/credentials that tripped the prior draft's safety regression."
+        }
+      ],
+      "merged": true
+    }
+  ]
+}
